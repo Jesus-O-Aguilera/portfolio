@@ -1,0 +1,228 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Jesus Ocaña
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+	@if $self {
+		&,
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+	} @else {
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+	}
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+	#{$context} & {
+		@content;
+	}
+}
+
+//
+//  MEDIA QUERIES
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// A map of breakpoints.
+$breakpoints: (xs: 0, sm: 576px, md: 769px, lg: 992px, xl: 1200px);
+$breakpoints-reverse: (xl: 1200px, lg: 992px, md: 769px, sm: 576px, xs: 0);
+
+//
+//  media ABOVE
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include media-above(sm) {}
+@mixin media-up($breakpoint) {
+	// If the breakpoint exists in the map.
+	@if map-has-key($breakpoints, $breakpoint) {
+		// Get the breakpoint value.
+		$breakpoint-value: map-get($breakpoints, $breakpoint);
+
+		// Write the media query.
+		@media (min-width: $breakpoint-value) {
+			@content;
+		}
+
+		// If the breakpoint doesn't exist in the map.
+	} @else {
+		// Log a warning.
+		@media (min-width: $breakpoint) {
+			@content;
+		}
+	}
+}
+
+//
+//  media BELOW
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include media-below(sm) {}
+@mixin media-down($breakpoint) {
+	// If the breakpoint exists in the map.
+	@if map-has-key($breakpoints, $breakpoint) {
+		// Get the breakpoint value.
+		$breakpoint-value: map-get($breakpoints, $breakpoint);
+
+		// Write the media query.
+		@media (max-width: ($breakpoint-value - 1)) {
+			@content;
+		}
+
+		// If the breakpoint doesn't exist in the map.
+	} @else {
+		// Log a warning.
+		@media (max-width: ($breakpoint - 1)) {
+			@content;
+		}
+	}
+}
+
+//
+//  media BETWEEN
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include media-between(sm, md) {}
+@mixin media-between($lower, $upper) {
+	// If both the lower and upper breakpoints exist in the map.
+	@if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+		// Get the lower and upper breakpoints.
+		$lower-breakpoint: map-get($breakpoints, $lower);
+		$upper-breakpoint: map-get($breakpoints, $upper);
+
+		// Write the media query.
+		@media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+			@content;
+		}
+
+		// If one or both of the breakpoints don't exist.
+	} @else {
+
+		@media (min-width: $lower) and (max-width: ($upper - 1)) {
+			@content;
+		}
+		// // If lower breakpoint is invalid.
+		// @if (map-has-key($breakpoints, $lower) == false) {
+		// 	// Log a warning.
+		// 	@warn 'Your lower breakpoint was invalid: #{$lower}.';
+		// }
+
+		// // If upper breakpoint is invalid.
+		// @if (map-has-key($breakpoints, $upper) == false) {
+		// 	// Log a warning.
+		// 	@warn 'Your upper breakpoint was invalid: #{$upper}.';
+		// }
+	}
+}
+
+@mixin responsive-property-up( $rule, $sizes... ) {
+	@each $size in $sizes {
+		$i: index($sizes, $size);
+		@if $size == nth( $sizes, 1 ) {
+			#{$rule}: $size;
+		} @else {
+			@include media-up( nth( map-keys( $breakpoints), $i ) ) {
+				#{$rule}: $size;
+			}
+		}
+	}
+}
+@mixin responsive-property-down( $rule, $sizes... ) {
+	@each $size in $sizes {
+		$i: index($sizes, $size);
+		@if $size == nth( $sizes, 1 ) {
+			#{$rule}: $size;
+		} @else {
+			@include media-down( nth( map-keys( $breakpoints-reverse), $i ) ) {
+				#{$rule}: $size;
+			}
+		}
+	}
+}
+
+
+
+
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {List}            - text-shadow list
+@function stroke($stroke, $color) {
+    $shadow: ();
+    $from: $stroke*-1;
+    @for $i from $from through $stroke {
+     @for $j from $from through $stroke {
+        $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+      }
+    }
+    @return $shadow;
+  }
+  /// Stroke font-character
+  /// @param  {Integer} $stroke - Stroke width
+  /// @param  {Color}   $color  - Stroke color
+  /// @return {Style}           - text-shadow
+  @mixin stroke($stroke, $color) {
+    text-shadow: stroke($stroke, $color);
+  }
+
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {List}            - text-shadow list
+@function custom-stroke($stroke, $color, $color2) {
+    $shadow: ();
+    $from: $stroke*-1;
+    @for $i from $from through $stroke {
+     @for $j from $from through $stroke {
+        $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+      }
+    }
+    @for $i from $from through $stroke {
+     @for $j from $from through $stroke {
+        $shadow: append($shadow, $i*1px $stroke*2px 0 $color2, comma);
+      }
+    }
+    @return $shadow;
+  }
+  /// Stroke font-character
+  /// @param  {Integer} $stroke - Stroke width
+  /// @param  {Color}   $color  - Stroke color
+  /// @return {Style}           - text-shadow
+  @mixin custom-stroke($stroke, $color, $color2) {
+    text-shadow: custom-stroke($stroke, $color, $color2);
+  }
+
+@function custom-stroke2($stroke, $color, $color2) {
+    $shadow: ();
+    $from: $stroke*-1;
+    @for $i from $from through $stroke {
+     @for $j from $from through $stroke {
+        $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+      }
+    }
+    $shadow: append($shadow, 0px 5px 3px $color2, comma);
+    @for $i from $from through $stroke {
+     @for $j from $from through $stroke {
+      }
+    }
+    @return $shadow;
+  }
+  /// Stroke font-character
+  /// @param  {Integer} $stroke - Stroke width
+  /// @param  {Color}   $color  - Stroke color
+  /// @return {Style}           - text-shadow
+  @mixin custom-stroke2($stroke, $color, $color2) {
+    text-shadow: custom-stroke2($stroke, $color, $color2);
+  }
