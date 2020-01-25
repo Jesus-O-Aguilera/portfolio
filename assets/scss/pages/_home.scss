@@ -19,4 +19,17 @@
         object-fit: cover;
         filter: grayscale(100%);
     }
+
+    .services{
+        span{
+            color:  #A58861;
+        }
+
+        ul{
+            margin-top: 1em;
+            list-style: none;
+            color: #fff;
+        }
+    }
 }
+

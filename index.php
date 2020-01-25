@@ -16,6 +16,33 @@
         <div class="container mt-5">
             <img class="banner" src="assets/img/banner.jpg" alt="">
         </div>
+        <div class="container my-5 pb-5">
+            <div class="row">
+                <div class="col-md-5 offset-md-1">
+                    <h2 class="light">¿Como puedo ayudarte?</h2>
+                    <p class="gray">As a freelance digital designer, I am here to make you stand out in the digital world. The combination of my passion for design and your vision will ensure a great end result.</p>
+                    <a class="btn-third" href="#!">Servicios <img src="assets/img/arrow-small.svg" alt=""></a>
+                </div>
+                <div class="col-md-4 offset-md-1">
+                    <div class="d-flex justify-content-around">
+                        <div class="services">
+                            <span class="text-small">Diseño</span>
+                            <ul>
+                                <li>Diseño web</li>
+                                <li>Maquetación</li>
+                                <li>Prototipada</li>
+                            </ul>
+                        </div>
+                        <div class="services">
+                            <span class="text-small">Desarollo</span>
+                            <ul>
+                                <li>Desarrollo web</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </div>
 <?php require_once 'footer.php' ?>

@@ -30,3 +30,33 @@
         }
     }
 }
+
+
+.btn-third{
+    color: #fff;
+    display: inline-block;
+    // padding: 30px 55px 30px 40px;
+    line-height: 0px;
+    // border-radius: 30px;
+    position: relative;
+    font-family: 'Silka-Medium', sans-serif;
+    transition: all .15s ease-in-out;
+
+    img{
+        opacity: .5;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    &:hover{
+        background: #191A1E;
+        color: #fff;
+        img{
+            opacity: 1;
+            margin-left: 13px;
+        }
+    }
+}
