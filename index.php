@@ -44,5 +44,35 @@
             </div>
         </div>
     </section>
+
+    <section class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>Trabajos recientes</h2> <a class="btn-secondary" href="#!">Ver más <img src="assets/img/arrow-small-light.svg" alt=""></a>
+            </div>
+
+            <div class="col-md-6 my-5">
+                <div class="case">
+                    <div class="my-3">
+                        <span>Case Study</span>
+                    </div>
+                    <div class="case-content">
+                        <h3 class="title">Eskape <br>
+                         Website</h3>
+                        <img src="assets/img/case-1.png" alt="">
+                    </div>
+                    <div class="case-view">
+                        <div class="arrow">
+                        
+                        </div>
+                        <p>Ver rabajo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 my-5">
+            
+            </div>
+        </div>
+    </section>
 </div>
 <?php require_once 'footer.php' ?>

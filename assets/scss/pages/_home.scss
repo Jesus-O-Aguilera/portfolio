@@ -31,5 +31,35 @@
             color: #fff;
         }
     }
+
+    .case{
+        // width: calc(50% - 20px);
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        background: #F1F1F1;
+        float: left;
+        color: #191A1E;
+        border: 0px #fff solid;
+        transform: translate(0%, 10px);
+        padding: 2em;
+
+        &-content{
+            display: flex;
+
+            .title{
+                margin-top: 3em;
+            }
+
+            img{
+                width: 300px;
+                margin-top: 3em;
+                position: absolute;
+                top: 50%;
+                left: calc(100% - 90px);
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
 }
 
