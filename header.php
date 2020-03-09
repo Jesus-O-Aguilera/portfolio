@@ -10,6 +10,7 @@
     <title>Portfolio</title>
 </head>
 <body>
+    <div class="cursor"></div>
     <header>
         <div class="container">
             <div class="row">

@@ -155,6 +155,28 @@ header {
         color: #000;
         font-family: "Circular Std Book"; }
 
+.footer {
+  margin-top: 5em;
+  background: black;
+  color: white;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .footer .row {
+    width: 100%; }
+  .footer .brand a {
+    color: white;
+    font-family: "Circular Std Book";
+    font-weight: bold;
+    font-size: 22px; }
+
 .btn-primary {
   background: #191A1E;
   color: #fff;
@@ -267,33 +289,56 @@ header {
   list-style: none;
   color: #fff; }
 
-.page-home .case {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  background: #F1F1F1;
-  float: left;
-  color: #191A1E;
-  border: 0px #fff solid;
-  -webkit-transform: translate(0%, 10px);
-  -ms-transform: translate(0%, 10px);
-  transform: translate(0%, 10px);
-  padding: 2em; }
-  .page-home .case-content {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex; }
-    .page-home .case-content .title {
-      margin-top: 3em; }
-    .page-home .case-content img {
-      width: 300px;
-      margin-top: 3em;
-      position: absolute;
-      top: 50%;
-      left: calc(100% - 90px);
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%); }
+.page-home .recently-work {
+  border-bottom: 1px solid #ddd; }
+  .page-home .recently-work .case {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #F1F1F1;
+    float: left;
+    color: #191A1E;
+    border: 0px #fff solid;
+    -webkit-transform: translate(0%, 10px);
+    -ms-transform: translate(0%, 10px);
+    transform: translate(0%, 10px);
+    padding: 2em;
+    -webkit-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out; }
+    .page-home .recently-work .case span {
+      text-transform: uppercase;
+      color: rgba(25, 26, 30, 0.7);
+      letter-spacing: 2px;
+      font-size: 14px; }
+    .page-home .recently-work .case-content {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .page-home .recently-work .case-content .title {
+        margin-top: 3em; }
+      .page-home .recently-work .case-content img {
+        width: 300px;
+        margin-top: 3em;
+        position: absolute;
+        top: 50%;
+        left: calc(100% - 90px);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
+    .page-home .recently-work .case-view p {
+      font-size: 14px; }
+    .page-home .recently-work .case:hover {
+      -webkit-transform: translate(0%, 0px);
+      -ms-transform: translate(0%, 0px);
+      transform: translate(0%, 0px); }
+
+.page-home .work-together h2 {
+  font-size: 44px; }
+
+.page-home .work-together .text-small {
+  letter-spacing: 2px;
+  color: rgba(25, 26, 30, 0.7); }
 
 .bg-black {
   background: #191A1E; }
