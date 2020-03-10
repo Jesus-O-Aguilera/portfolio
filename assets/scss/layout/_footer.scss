@@ -2,3 +2,25 @@
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
 
+.footer{
+    margin-top: 5em;
+    background: black;
+    color: white;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .row{
+        width: 100%;
+    }
+
+    .brand{
+        a{
+            color: white;
+            font-family: $circular-book;
+            font-weight: bold;
+            font-size: 22px;
+        }
+    }
+}

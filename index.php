@@ -45,32 +45,58 @@
         </div>
     </section>
 
-    <section class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h2>Trabajos recientes</h2> <a class="btn-secondary" href="#!">Ver más <img src="assets/img/arrow-small-light.svg" alt=""></a>
-            </div>
+    <section class="recently-work">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2>Trabajos recientes</h2> <a class="btn-secondary" href="#!">Ver más <img src="assets/img/arrow-small-light.svg" alt=""></a>
+                </div>
 
-            <div class="col-md-6 my-5">
-                <div class="case">
-                    <div class="my-3">
-                        <span>Case Study</span>
-                    </div>
-                    <div class="case-content">
-                        <h3 class="title">Eskape <br>
-                         Website</h3>
-                        <img src="assets/img/case-1.png" alt="">
-                    </div>
-                    <div class="case-view">
-                        <div class="arrow">
-                        
+                <div class="col-md-6 my-5">
+                    <div class="case">
+                        <div class="my-3">
+                            <span>Case Study</span>
                         </div>
-                        <p>Ver rabajo</p>
+                        <div class="case-content">
+                            <h3 class="title">Eskape <br>  <p style="color: #A48A5B;">Website</p></h3>
+                        
+                            <img src="assets/img/case-1.png" alt="">
+                        </div>
+                        <div class="case-view">
+                            <!-- <div class="arrow">
+                            </div> -->
+                            <p>Ver Trabajo</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 my-5">
+                    <div class="case">
+                        <div class="my-3">
+                            <span>Case Study</span>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="title">Eskape <br>  <p style="color: #A48A5B;">Website</p></h3>
+                        
+                            <img src="assets/img/case-1.png" alt="">
+                        </div>
+                        <div class="case-view">
+                            <!-- <div class="arrow">
+                            </div> -->
+                            <p>Ver Trabajo</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 my-5">
-            
+        </div>
+    </section>
+
+    <section class="work-together">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <small class="text-small">¿Te gusta mi trabajo?</small>
+                    <h2 class="mt-2">Trabajemos <span style="color: #A48A5B;">juntos</span></h2> <a class="btn-secondary mt-3" href="#!">Ver más <img src="assets/img/arrow-small-light.svg" alt=""></a>
+                </div>
             </div>
         </div>
     </section>
