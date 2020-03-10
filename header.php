@@ -11,6 +11,7 @@
 </head>
 <body>
     <header>
+    <div class="cursor"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 d-flex justify-content-start">
