@@ -40,7 +40,8 @@ body {
   -ms-flex-direction: column;
   flex-direction: column;
   overflow-x: hidden;
-  font-family: "Circular Std Book"; }
+  font-family: "Circular Std Book";
+  cursor: none; }
 
 section {
   margin-top: 80px; }
@@ -49,6 +50,7 @@ section {
       margin-top: 60px !important; } }
 
 img {
+  position: relative;
   max-width: 100%; }
 
 footer {
@@ -88,6 +90,43 @@ footer {
   padding: 0;
   position: absolute;
   width: 1px; }
+
+.cursor {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid black;
+  border-radius: 50%;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  -webkit-transition-property: background, -webkit-transform;
+  transition-property: background, -webkit-transform;
+  -o-transition-property: background, transform;
+  transition-property: background, transform;
+  transition-property: background, transform, -webkit-transform;
+  -webkit-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+  z-index: -1; }
+
+.link-grow {
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+  background: black; }
+
+.hovered-link a {
+  color: white !important; }
+
+.text-small {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
 
 @font-face {
   font-family: 'Circular Std Bold';
@@ -136,25 +175,6 @@ footer {
 
 header {
   padding: 3em; }
-  header .cursor {
-    width: 3rem;
-    height: 3rem;
-    border: 2px solid black;
-    border-radius: 50%;
-    position: absolute;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    -webkit-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-    z-index: 99; }
-  header .link-grow {
-    -webkit-transform: scale(2);
-    -ms-transform: scale(2);
-    transform: scale(2);
-    background: black; }
   header .brand a {
     font-family: "Circular Std Book";
     font-weight: bold;
@@ -356,6 +376,82 @@ header {
   font-size: 44px; }
 
 .page-home .work-together .text-small {
+  letter-spacing: 2px;
+  color: rgba(25, 26, 30, 0.7); }
+
+.service-block {
+  width: 100%;
+  background: #fff;
+  height: 100%;
+  padding: 40px;
+  border: 1px solid #ddd; }
+  .service-block h3 {
+    font-family: 'Silka-SemiBold', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(25, 26, 30, 0.4);
+    font-size: 12px;
+    line-height: 30px;
+    margin-bottom: 10px; }
+  .service-block h4 {
+    font-size: 17px;
+    line-height: 28px;
+    font-family: 'Silka-SemiBold', sans-serif; }
+  .service-block-icon {
+    height: 40px;
+    margin-bottom: 20px;
+    float: left;
+    width: 100%;
+    position: relative; }
+
+.recently-work {
+  border-bottom: 1px solid #ddd; }
+  .recently-work .case {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #F1F1F1;
+    float: left;
+    color: #191A1E;
+    border: 0px #fff solid;
+    -webkit-transform: translate(0%, 10px);
+    -ms-transform: translate(0%, 10px);
+    transform: translate(0%, 10px);
+    padding: 2em;
+    -webkit-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out; }
+    .recently-work .case span {
+      text-transform: uppercase;
+      color: rgba(25, 26, 30, 0.7);
+      letter-spacing: 2px;
+      font-size: 14px; }
+    .recently-work .case-content {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .recently-work .case-content .title {
+        margin-top: 3em; }
+      .recently-work .case-content img {
+        width: 300px;
+        margin-top: 3em;
+        position: absolute;
+        top: 50%;
+        left: calc(100% - 90px);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
+    .recently-work .case-view p {
+      font-size: 14px; }
+    .recently-work .case:hover {
+      -webkit-transform: translate(0%, 0px);
+      -ms-transform: translate(0%, 0px);
+      transform: translate(0%, 0px); }
+
+.work-together h2 {
+  font-size: 44px; }
+
+.work-together .text-small {
   letter-spacing: 2px;
   color: rgba(25, 26, 30, 0.7); }
 

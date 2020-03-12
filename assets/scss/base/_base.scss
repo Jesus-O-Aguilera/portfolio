@@ -48,6 +48,7 @@ body {
 	flex-direction: column;
 	overflow-x: hidden;
 	font-family: "Circular Std Book";
+	cursor: none;
 }
 
 section{
@@ -59,7 +60,9 @@ section{
 }
 
 img{
+	position: relative;
 	max-width: 100%;
+	// z-index: -3;
 }
 // section{
 // 	// margin-bottom: 80px;

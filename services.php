@@ -1,49 +1,34 @@
 <?php require_once 'header.php' ?>
-<div class="page-home">
-    <img class="line-home" src="assets/img/line-home.svg" alt="">
-    <section class="container">
+<div class="page-services">
+    <div class="container">
         <div class="row">
-            <div class="col-md-12 text-center">
-                <small class="text-small">Desarrollador web</small>
-                <h1>Hola mi nombre es Jesus Ocaña, me dedico al desarrollo web para crear presencia en internet</h1>
+            <div class="col-md-12 my-5 text-center">
+                <small class="text-small">Mis</small>
+                <h1>Servicios:</h1>
             </div>
-            <div class="col-md-12 d-flex justify-content-center mt-3">
-                <a class="btn-primary" href="#!">Mi trabajo <img src="assets/img/arrow-small.svg" alt=""></a>
-            </div>
-        </div>
-    </section>
-    <section class="bg-black">
-        <div class="container mt-5">
-            <img class="banner" src="assets/img/banner.jpg" alt="">
-        </div>
-        <div class="container my-5 pb-5">
-            <div class="row">
-                <div class="col-md-5 offset-md-1">
-                    <h2 class="light">¿Como puedo ayudarte?</h2>
-                    <p class="gray">As a freelance digital designer, I am here to make you stand out in the digital world. The combination of my passion for design and your vision will ensure a great end result.</p>
-                    <a class="btn-third" href="#!">Servicios <img src="assets/img/arrow-small.svg" alt=""></a>
-                </div>
-                <div class="col-md-4 offset-md-1">
-                    <div class="d-flex justify-content-around">
-                        <div class="services">
-                            <span class="text-small">Diseño</span>
-                            <ul>
-                                <li>Diseño web</li>
-                                <li>Maquetación</li>
-                                <li>Prototipada</li>
-                            </ul>
-                        </div>
-                        <div class="services">
-                            <span class="text-small">Desarollo</span>
-                            <ul>
-                                <li>Desarrollo web</li>
-                            </ul>
-                        </div>
+
+            <div class="col-lg-4">
+               <div class="service-block">
+                    <div class="service-block-icon">
+                        <img src="https://www.dennissnellenberg.nl/assets/img/icon-webdesign.svg">
                     </div>
+                    <h3>Web Design</h3>
+                    <h4>My core business is designing pixel perfect websites and interfaces.</h4>
+               </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="service-block">
+                    <div class="service-block-icon">
+                        <img src="https://www.dennissnellenberg.nl/assets/img/icon-development.svg">                    </div>
+                    <h3>Web Development</h3>
+                    <h4>I build websites from scratch that the customer can edit themselves.</h4>
                 </div>
             </div>
+            <div class="col-lg-4">
+
+            </div>
         </div>
-    </section>
+    </div>
 
     <section class="recently-work">
         <div class="container">

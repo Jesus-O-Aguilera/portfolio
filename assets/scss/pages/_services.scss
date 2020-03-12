@@ -1,0 +1,99 @@
+.service-block{
+    width: 100%;
+    background: #fff;
+    // float: left;
+    height: 100%;
+    padding: 40px;
+    border: 1px solid #ddd;
+
+    h3{
+        font-family: 'Silka-SemiBold', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: rgba(25, 26, 30, 0.4);
+        font-size: 12px;
+        line-height: 30px;
+        margin-bottom: 10px;
+    }
+
+    h4{
+        font-size: 17px;
+        line-height: 28px;
+        font-family: 'Silka-SemiBold', sans-serif;
+    }
+
+    &-icon{
+        height: 40px;
+        margin-bottom: 20px;
+        float: left;
+        width: 100%;
+        position: relative;
+    }
+
+    
+}
+
+
+.recently-work{
+    border-bottom: 1px solid #ddd;
+
+    .case{
+        // width: calc(50% - 20px);
+        width: 100%;
+        position: relative;
+        // z-index: -5;
+        overflow: hidden;
+        background: #F1F1F1;
+        float: left;
+        color: #191A1E;
+        border: 0px #fff solid;
+        transform: translate(0%, 10px);
+        padding: 2em;
+        transition: all .25s ease-in-out;
+
+        span{
+            text-transform: uppercase;
+            color: rgba(25, 26, 30, .7);
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+
+        &-content{
+            display: flex;
+
+            .title{
+                margin-top: 3em;
+            }
+
+            img{
+                width: 300px;
+                margin-top: 3em;
+                position: absolute;
+                top: 50%;
+                left: calc(100% - 90px);
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        &-view{
+            p{
+                font-size: 14px;
+            }
+        }
+
+        &:hover{
+            transform: translate(0%, 0px);
+        }
+    }
+}
+
+.work-together{
+    h2{
+        font-size: 44px;
+    }
+
+    .text-small{
+        letter-spacing: 2px;
+        color: rgba(25, 26, 30, .7);
+    }
+}

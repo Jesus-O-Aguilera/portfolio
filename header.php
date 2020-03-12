@@ -10,18 +10,18 @@
     <title>Portfolio</title>
 </head>
 <body>
+    <div class="cursor"></div>
     <header>
-        <div class="cursor"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 d-flex justify-content-start">
                     <div class="brand">
-                        <a href=#!>Jesus Ocaña.</a>
+                        <a href=index.php>Jesus Ocaña.</a>
                     </div>
                 </div>
                 <nav class="col-md-6 d-flex justify-content-end">
                     <ul class="menu-desktop">
-                        <li><a href="#!">Services</a></li>
+                        <li><a href="services.php">Services</a></li>
                         <li><a href="#!">Portfolio</a></li>
                         <li><a href="#!">Contact</a></li>
                     </ul>
@@ -30,3 +30,4 @@
         </div>
     </header>
     <main>
+        
