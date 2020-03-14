@@ -1,3 +1,8 @@
 .bg-black{
     background: #191A1E;
 }
+
+.bg-black-v2{
+    background: #191A1E url(../img/line-nav.svg) center center no-repeat;
+    background-size: contain;
+}

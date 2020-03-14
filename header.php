@@ -10,7 +10,7 @@
     <title>Portfolio</title>
 </head>
 <body>
-    <div class="cursor"></div>
+    <!-- <div class="cursor"></div> -->
     <header>
         <div class="container">
             <div class="row">
@@ -22,8 +22,8 @@
                 <nav class="col-md-6 d-flex justify-content-end">
                     <ul class="menu-desktop">
                         <li><a href="services.php">Services</a></li>
-                        <li><a href="#!">Portfolio</a></li>
-                        <li><a href="#!">Contact</a></li>
+                        <li><a href="portfolio.php">Portfolio</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                     </ul>
                 </nav>
             </div>

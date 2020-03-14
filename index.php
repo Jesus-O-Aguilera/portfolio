@@ -1,11 +1,12 @@
 <?php require_once 'header.php' ?>
+
 <div class="page-home">
     <img class="line-home" src="assets/img/line-home.svg" alt="">
     <section class="container">
         <div class="row">
-            <div class="col-md-12 text-center">
+            <div class="col-md-10 offset-md-1 text-center">
                 <small class="text-small">Desarrollador web</small>
-                <h1>Hola mi nombre es Jesus Ocaña, me dedico al desarrollo web para crear presencia en internet</h1>
+                <h1>Hola mi nombre es Jesus Ocaña, me dedico al desarrollo web </h1>
             </div>
             <div class="col-md-12 d-flex justify-content-center mt-3">
                 <a class="btn-primary" href="#!">Mi trabajo <img src="assets/img/arrow-small.svg" alt=""></a>
@@ -20,7 +21,7 @@
             <div class="row">
                 <div class="col-md-5 offset-md-1">
                     <h2 class="light">¿Como puedo ayudarte?</h2>
-                    <p class="gray">As a freelance digital designer, I am here to make you stand out in the digital world. The combination of my passion for design and your vision will ensure a great end result.</p>
+                    <p class="gray">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium tempore, asperiores mollitia molestias officia maiores perferendis eius, voluptatum aspernatur, totam ab maxime consequatur architecto recusandae tenetur ea perspiciatis reprehenderit labore.</p>
                     <a class="btn-third" href="#!">Servicios <img src="assets/img/arrow-small.svg" alt=""></a>
                 </div>
                 <div class="col-md-4 offset-md-1">
@@ -30,13 +31,20 @@
                             <ul>
                                 <li>Diseño web</li>
                                 <li>Maquetación</li>
-                                <li>Prototipada</li>
+                                <li>Prototipado</li>
                             </ul>
                         </div>
                         <div class="services">
                             <span class="text-small">Desarollo</span>
                             <ul>
                                 <li>Desarrollo web</li>
+                            </ul>
+                        </div>
+                        <div class="">
+                            <span class="text-small">Desarollo</span>
+                            <ul>
+                                <li>Drupal 8</li>
+                                <li></li>
                             </ul>
                         </div>
                     </div>
@@ -55,7 +63,7 @@
                 <div class="col-lg-6 my-5">
                     <div class="case">
                         <div class="my-3">
-                            <span>Case Study</span>
+                            <span>Sitio web</span>
                         </div>
                         <div class="case-content">
                             <h3 class="title">Eskape <br>  <p style="color: #A48A5B;">Website</p></h3>
@@ -72,7 +80,7 @@
                 <div class="col-lg-6 my-5">
                     <div class="case">
                         <div class="my-3">
-                            <span>Case Study</span>
+                            <span>Sitio web</span>
                         </div>
                         <div class="case-content">
                             <h3 class="title">Eskape <br>  <p style="color: #A48A5B;">Website</p></h3>

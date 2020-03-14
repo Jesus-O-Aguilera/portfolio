@@ -83,5 +83,23 @@
 .text-small{
 	font-size: 14px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+	letter-spacing: 2px;
+	color: rgba(25, 26, 30, .7);
+}
+
+
+input[type="text"], input[type="email"], input[type="tel"], textarea {
+    width: 100%;
+    // border: none;
+    // border-bottom: 2px solid white;
+	padding: .5em .5em;
+	border: 1px solid rgba(255,255,255,.5);
+	background: black;
+	margin-top: 1em;
+	border-radius: 5px;
+	color: rgba(255,255,255,.5);;
+}
+
+::placeholder{
+	color: rgba(255,255,255,.5);
 }

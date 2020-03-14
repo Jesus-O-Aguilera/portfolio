@@ -12,16 +12,16 @@
                     <div class="service-block-icon">
                         <img src="https://www.dennissnellenberg.nl/assets/img/icon-webdesign.svg">
                     </div>
-                    <h3>Web Design</h3>
-                    <h4>My core business is designing pixel perfect websites and interfaces.</h4>
+                    <h3>Diseño web</h3>
+                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, maiores!</h4>
                </div>
             </div>
             <div class="col-lg-4">
                 <div class="service-block">
                     <div class="service-block-icon">
                         <img src="https://www.dennissnellenberg.nl/assets/img/icon-development.svg">                    </div>
-                    <h3>Web Development</h3>
-                    <h4>I build websites from scratch that the customer can edit themselves.</h4>
+                    <h3>Desarrollo web</h3>
+                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, at!</h4>
                 </div>
             </div>
             <div class="col-lg-4">
