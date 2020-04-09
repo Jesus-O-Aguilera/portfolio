@@ -26,6 +26,12 @@ html {
 	margin: 0;
 }
 
+html{
+	@include media-down(md){
+		overflow-x: hidden;
+	}
+}
+
 /**
  * Basic styles for links
  */

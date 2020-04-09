@@ -14,16 +14,16 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-md-6 d-flex justify-content-start">
+                <div class="col-10 col-md-6 d-flex justify-content-md-start justify-content-center">
                     <div class="brand">
                         <a href=index.php>Jesus Ocaña.</a>
                     </div>
                 </div>
-                <nav class="col-md-6 d-flex justify-content-end">
+                <nav class="col-md-6 d-none d-md-flex justify-content-end">
                     <ul class="menu-desktop">
-                        <li><a href="services.php">Services</a></li>
-                        <li><a href="portfolio.php">Portfolio</a></li>
-                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="services.php">Servicios</a></li>
+                        <li><a href="portfolio.php">Portafolio</a></li>
+                        <li><a href="contact.php">Contacto</a></li>
                     </ul>
                 </nav>
             </div>

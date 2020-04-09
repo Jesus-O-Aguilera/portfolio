@@ -20,6 +20,10 @@ html {
   padding: 0;
   margin: 0; }
 
+@media (max-width: 768px) {
+  html {
+    overflow-x: hidden; } }
+
 /**
  * Basic styles for links
  */
@@ -149,6 +153,14 @@ input[type="text"], input[type="email"], input[type="tel"], textarea {
 ::placeholder {
   color: rgba(255, 255, 255, 0.5); }
 
+.space-letter {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(25, 26, 30, 0.4); }
+
+.brown {
+  color: #A58861; }
+
 @font-face {
   font-family: 'Circular Std Bold';
   src: url("../fonts/CircularStd-Bold.otf");
@@ -196,6 +208,9 @@ input[type="text"], input[type="email"], input[type="tel"], textarea {
 
 header {
   padding: 3em; }
+  @media (max-width: 575px) {
+    header {
+      padding: 1em; } }
   header .brand a {
     font-family: "Circular Std Book";
     font-weight: bold;
@@ -324,6 +339,40 @@ header {
       opacity: 1;
       margin-left: 13px; }
 
+.arrow {
+  background: #191A1E url(../img/arrow-small-light.svg) center center no-repeat;
+  opacity: 1 !important;
+  right: 0 !important;
+  width: 70px;
+  height: 70px; }
+  .arrow:hover {
+    background: #ddd url(../img/arrow-small-light.svg) center center no-repeat; }
+
+.prev {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+.slick-track, .slick-list {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.slider-detail img {
+  width: 100%;
+  height: 100%; }
+
+@media (max-width: 575px) {
+  .slider-work {
+    overflow: hidden; } }
+
+.page-home .slogan {
+  font-size: 54px; }
+  @media (max-width: 575px) {
+    .page-home .slogan {
+      font-size: 32px; } }
+
 .page-home .text-small {
   font-size: 14px;
   text-transform: uppercase;
@@ -333,6 +382,9 @@ header {
   position: absolute;
   top: 0;
   left: 15%; }
+  @media (max-width: 991px) {
+    .page-home .line-home {
+      left: 0; } }
 
 .page-home .banner {
   margin-top: -2em;
@@ -353,6 +405,8 @@ header {
 
 .page-home .recently-work {
   border-bottom: 1px solid #ddd; }
+  .page-home .recently-work .title h1, .page-home .recently-work .title h2, .page-home .recently-work .title h3, .page-home .recently-work .title h4, .page-home .recently-work .title h5, .page-home .recently-work .title h6 {
+    font-size: 40px; }
   .page-home .recently-work .case {
     width: 100%;
     position: relative;
@@ -378,7 +432,8 @@ header {
       display: -ms-flexbox;
       display: flex; }
       .page-home .recently-work .case-content .title {
-        margin-top: 3em; }
+        font-size: 40px;
+        margin-top: 2em; }
       .page-home .recently-work .case-content img {
         width: 300px;
         margin-top: 3em;
@@ -388,8 +443,14 @@ header {
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%); }
-    .page-home .recently-work .case-view p {
+        @media (max-width: 575px) {
+          .page-home .recently-work .case-content img {
+            width: 150px; } }
+    .page-home .recently-work .case-view a {
+      color: black;
       font-size: 14px; }
+      .page-home .recently-work .case-view a:hover {
+        text-decoration: underline; }
     .page-home .recently-work .case:hover {
       -webkit-transform: translate(0%, 0px);
       -ms-transform: translate(0%, 0px);
@@ -401,6 +462,9 @@ header {
 .page-home .work-together .text-small {
   letter-spacing: 2px;
   color: rgba(25, 26, 30, 0.7); }
+
+.pt-title h1, .pt-title h2, .pt-title h3, .pt-title h4, .pt-title h5, .pt-title h6 {
+  font-size: 50px; }
 
 .service-block {
   width: 100%;
@@ -419,7 +483,8 @@ header {
   .service-block h4 {
     font-size: 17px;
     line-height: 28px;
-    font-family: 'Silka-SemiBold', sans-serif; }
+    font-family: 'Silka-SemiBold', sans-serif;
+    font-weight: bold; }
   .service-block-icon {
     height: 40px;
     margin-bottom: 20px;
@@ -464,8 +529,14 @@ header {
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%); }
-    .recently-work .case-view p {
+        @media (max-width: 575px) {
+          .recently-work .case-content img {
+            width: 150px; } }
+    .recently-work .case-view a {
+      color: black;
       font-size: 14px; }
+      .recently-work .case-view a:hover {
+        text-decoration: underline; }
     .recently-work .case:hover {
       -webkit-transform: translate(0%, 0px);
       -ms-transform: translate(0%, 0px);
@@ -481,6 +552,9 @@ header {
 .contact-left h1 {
   font-size: 48px;
   font-weight: bold; }
+  @media (max-width: 768px) {
+    .contact-left h1 {
+      font-size: 40px; } }
 
 .contact-left-data h3 {
   font-size: 12px;
@@ -518,6 +592,11 @@ header {
   top: 0;
   left: 50%;
   height: 120vh; }
+  @media (max-width: 575px) {
+    .contact-right {
+      position: relative;
+      left: 0;
+      height: 100vh; } }
   .contact-right form {
     margin-top: 5em !important;
     display: -webkit-box;
@@ -528,6 +607,10 @@ header {
     -ms-flex-direction: column;
     flex-direction: column;
     padding: 3em; }
+    @media (max-width: 575px) {
+      .contact-right form {
+        margin-top: 0em !important;
+        padding: 1em; } }
     .contact-right form h2 {
       font-size: 28px;
       color: #A58861;
@@ -539,11 +622,101 @@ header {
       border: 1px solid rgba(255, 255, 255, 0.5);
       width: 150px; }
 
+.case-work {
+  background: #EEEEE5;
+  padding: 2em;
+  border: 0px #fff solid;
+  -webkit-transform: translate(0%, 10px);
+  -ms-transform: translate(0%, 10px);
+  transform: translate(0%, 10px);
+  padding: 2em;
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+  margin-left: 2em; }
+  @media (max-width: 575px) {
+    .case-work {
+      margin-left: 0; } }
+  .case-work .link a {
+    color: black;
+    font-size: 14px; }
+    .case-work .link a:hover {
+      text-decoration: underline; }
+  .case-work:hover {
+    -webkit-transform: translate(0%, 0px);
+    -ms-transform: translate(0%, 0px);
+    transform: translate(0%, 0px); }
+
+.page-portfolio-details {
+  margin-top: -10em;
+  width: 100%; }
+  @media (max-width: 575px) {
+    .page-portfolio-details .pt-bg {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column; } }
+  .page-portfolio-details p {
+    opacity: .7; }
+  .page-portfolio-details .project-banner {
+    background: #EEEEE5 url(https://www.dennissnellenberg.nl/assets/img/line-case.svg) 15vw top no-repeat;
+    background-size: contain;
+    width: 100%;
+    padding-top: 15em;
+    height: 100vh; }
+    @media (max-width: 575px) {
+      .page-portfolio-details .project-banner {
+        height: 120vh; } }
+    .page-portfolio-details .project-banner .name {
+      font-size: 54px;
+      line-height: 72px;
+      font-family: 'Silka-SemiBold', sans-serif; }
+      @media (max-width: 575px) {
+        .page-portfolio-details .project-banner .name {
+          font-size: 40px; } }
+    .page-portfolio-details .project-banner .category {
+      color: #A48A5B;
+      font-size: 54px;
+      line-height: 30px; }
+      @media (max-width: 575px) {
+        .page-portfolio-details .project-banner .category {
+          font-size: 40px; } }
+    .page-portfolio-details .project-banner .btn-primary img {
+      top: 40% !important;
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg); }
+  .page-portfolio-details .project-info .pi-info {
+    margin-top: 1em;
+    border-bottom: 2px solid #ddd;
+    opacity: .8; }
+    .page-portfolio-details .project-info .pi-info span {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase; }
+    .page-portfolio-details .project-info .pi-info p {
+      opacity: 1 !important;
+      color: black;
+      margin: .6em 0;
+      margin-bottom: .5em; }
+
 .bg-black {
   background: #191A1E; }
 
 .bg-black-v2 {
   background: #191A1E url(../img/line-nav.svg) center center no-repeat;
   background-size: contain; }
+
+.bg-brown {
+  background: #EEEEE5; }
 
 /*# sourceMappingURL=style.css.map */

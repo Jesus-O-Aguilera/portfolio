@@ -2,7 +2,7 @@
 <div class="page-contact">
     <div class="container-fluid mx-0 px-0">
         <div class="row mx-0">
-            <div class="col-md-5 offset-md-1">
+            <div class="col-md-5 offset-md-1 my-5 mt-md-0">
                 <div class="contact-left"> 
                     <h3 class="text-small">Contacto</h3>
                     <h1>Mi información<span class="color">:</span></h1>
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="col-md-6 contact-right bg-black-v2">
-                <form action="" class="mt-5">
+                <form action="" class="mt-2 mt-md-5">
                     <h2 class="text-center">Trabajemos juntos</h2>
                     <input type="text" placeholder="Nombre">
                     <input type="email" placeholder="Corre electrónico">

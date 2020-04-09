@@ -1,0 +1,80 @@
+.page-portfolio-details{
+    // position: absolute;
+    // top: 0;
+    margin-top: -10em;
+    width: 100%;
+
+    .pt-bg{
+        @include media-down(sm){
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    }
+
+    p{
+        opacity: .7;
+    }
+
+
+    .project-banner{
+        background: #EEEEE5 url(https://www.dennissnellenberg.nl/assets/img/line-case.svg) 15vw top no-repeat;
+        background-size: contain;
+        width: 100%;
+        padding-top: 15em;
+        height: 100vh;
+
+        @include media-down(sm){
+            height: 120vh;
+        }
+
+        .name{
+            font-size: 54px;
+            line-height: 72px;
+            font-family: 'Silka-SemiBold', sans-serif;
+            @include media-down(sm){
+                font-size: 40px;
+            }
+        }
+
+        .category{
+            color:  #A48A5B;
+            font-size: 54px;
+            line-height: 30px;
+            @include media-down(sm){
+                font-size: 40px;
+            }
+        }
+
+        .btn-primary{
+            img{
+                top: 40% !important;
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    .project-info{
+       
+        .pi-info{
+            margin-top: 1em;
+            border-bottom: 2px solid #ddd;
+            opacity: .8;
+
+            span{
+                font-size: 12px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+               
+            }
+
+            p{
+                opacity: 1 !important;
+                color: black;
+                margin: .6em 0;     
+                margin-bottom: .5em;
+            }
+        }
+    }
+}

@@ -3,28 +3,28 @@
 <div class="page-home">
     <img class="line-home" src="assets/img/line-home.svg" alt="">
     <section class="container">
-        <div class="row">
-            <div class="col-md-10 offset-md-1 text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-9 text-center">
                 <small class="text-small">Desarrollador web</small>
-                <h1>Hola mi nombre es Jesus Ocaña, me dedico al desarrollo web </h1>
+                <h1 class="mt-3 slogan">Hola mi nombre es Jesus Ocaña <br> <span class="brown">soy desarrollador web</span> </h1>
             </div>
             <div class="col-md-12 d-flex justify-content-center mt-3">
-                <a class="btn-primary" href="#!">Mi trabajo <img src="assets/img/arrow-small.svg" alt=""></a>
+                <a class="btn-primary" href="portfolio.php">Mi trabajo <img src="assets/img/arrow-small.svg" alt=""></a>
             </div>
         </div>
     </section>
     <section class="bg-black">
-        <div class="container mt-5">
+        <div class="container my-5">
             <img class="banner" src="assets/img/banner.jpg" alt="">
         </div>
-        <div class="container my-5 pb-5">
+        <div class="container pt-5 pb-5">
             <div class="row">
-                <div class="col-md-5 offset-md-1">
+                <div class="col-md-12 col-lg-5 offset-md-1">
                     <h2 class="light">¿Como puedo ayudarte?</h2>
                     <p class="gray">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium tempore, asperiores mollitia molestias officia maiores perferendis eius, voluptatum aspernatur, totam ab maxime consequatur architecto recusandae tenetur ea perspiciatis reprehenderit labore.</p>
-                    <a class="btn-third" href="#!">Servicios <img src="assets/img/arrow-small.svg" alt=""></a>
+                    <a class="btn-third" href="services.php">Servicios <img src="assets/img/arrow-small.svg" alt=""></a>
                 </div>
-                <div class="col-md-4 offset-md-1">
+                <div class="col-md-12 col-lg-5 offset-md-1 mt-5 mt-lg-0">
                     <div class="d-flex justify-content-around">
                         <div class="services">
                             <span class="text-small">Diseño</span>
@@ -40,11 +40,13 @@
                                 <li>Desarrollo web</li>
                             </ul>
                         </div>
-                        <div class="">
-                            <span class="text-small">Desarollo</span>
+                        <div class="services d-none d-md-block">
+                            <span class="text-small">Frameworks y CMS</span>
                             <ul>
                                 <li>Drupal 8</li>
-                                <li></li>
+                                <li>Wordpress</li>
+                                <li>Laravel</li>
+                                <li>Node JS</li>
                             </ul>
                         </div>
                     </div>
@@ -56,8 +58,8 @@
     <section class="recently-work">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center">
-                    <h2>Trabajos recientes</h2> <a class="btn-secondary" href="#!">Ver más <img src="assets/img/arrow-small-light.svg" alt=""></a>
+                <div class="col-md-12 d-flex justify-content-center align-items-center text-center flex-column flex-md-row title">
+                    <h2>Trabajos recientes</h2> <a class="btn-secondary ml-3" href="#!">Ver más <img src="assets/img/arrow-small-light.svg" alt=""></a>
                 </div>
 
                 <div class="col-lg-6 my-5">
@@ -73,7 +75,7 @@
                         <div class="case-view">
                             <!-- <div class="arrow">
                             </div> -->
-                            <p>Ver Trabajo</p>
+                            <a href="details.php">Ver Trabajo</a>
                         </div>
                     </div>
                 </div>
@@ -90,7 +92,7 @@
                         <div class="case-view">
                             <!-- <div class="arrow">
                             </div> -->
-                            <p>Ver Trabajo</p>
+                            <a href="details.php">Ver Trabajo</a>
                         </div>
                     </div>
                 </div>
@@ -103,7 +105,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <small class="text-small">¿Te gusta mi trabajo?</small>
-                    <h2 class="mt-2">Trabajemos <span style="color: #A48A5B;">juntos</span></h2> <a class="btn-secondary mt-3" href="#!">Ver más <img src="assets/img/arrow-small-light.svg" alt=""></a>
+                    <h2 class="mt-2">Hagamos algo <span style="color: #A48A5B;">increible</span></h2> <a class="btn-secondary mt-3" href="contact.php">Contacto <img src="assets/img/arrow-small-light.svg" alt=""></a>
                 </div>
             </div>
         </div>

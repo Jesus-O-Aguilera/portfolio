@@ -103,3 +103,13 @@ input[type="text"], input[type="email"], input[type="tel"], textarea {
 ::placeholder{
 	color: rgba(255,255,255,.5);
 }
+
+.space-letter{
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	color: rgba(25, 26, 30, 0.4);;
+}
+
+.brown{
+	color: #A58861;
+}

@@ -1,3 +1,9 @@
+.pt-title{
+    #{$heads}{
+        font-size: 50px;
+    }
+}
+
 .service-block{
     width: 100%;
     background: #fff;
@@ -20,6 +26,7 @@
         font-size: 17px;
         line-height: 28px;
         font-family: 'Silka-SemiBold', sans-serif;
+        font-weight: bold;
     }
 
     &-icon{
@@ -72,12 +79,21 @@
                 top: 50%;
                 left: calc(100% - 90px);
                 transform: translate(-50%, -50%);
+
+                @include media-down(sm){
+                    width: 150px;
+                }
             }
         }
 
         &-view{
-            p{
+            a{
+                color: black;
                 font-size: 14px;
+
+                &:hover{
+                    text-decoration: underline;
+                }
             }
         }
 

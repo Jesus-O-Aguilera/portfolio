@@ -2,6 +2,10 @@
     h1{
         font-size: 48px;
         font-weight: bold;
+
+        @include media-down(md){
+            font-size: 40px;
+        }
     }
 
     &-data{
@@ -47,6 +51,12 @@
     top: 0;
     left: 50%;
     height: 120vh;
+
+    @include media-down(sm){
+        position: relative;
+        left: 0;
+        height: 100vh;
+    }
     // z-index: -999;
 
     form{
@@ -54,6 +64,11 @@
         display: flex;
         flex-direction: column;
         padding: 3em;
+
+        @include media-down(sm){
+            margin-top: 0em !important;
+            padding: 1em;
+        }
 
         h2{
             font-size: 28px;

@@ -5,6 +5,10 @@
 header{
     padding: 3em;
 
+    @include media-down(sm){
+        padding: 1em;
+    }
+
     .brand{
        a{
           font-family: $circular-book;

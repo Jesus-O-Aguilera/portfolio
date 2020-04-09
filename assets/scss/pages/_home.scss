@@ -1,5 +1,13 @@
 .page-home{
 
+    .slogan{
+        font-size: 54px;
+
+        @include media-down(sm){
+            font-size: 32px;
+        }
+    }
+
     .text-small{
         font-size: 14px;
         text-transform: uppercase;
@@ -10,6 +18,10 @@
         position: absolute;
         top: 0;
         left: 15%;
+
+        @include media-down(lg){
+            left: 0;
+        }
     }
 
     .banner{
@@ -34,6 +46,12 @@
 
     .recently-work{
         border-bottom: 1px solid #ddd;
+
+        .title{
+            #{$heads}{
+                font-size: 40px;
+            }
+        }
 
         .case{
             // width: calc(50% - 20px);
@@ -60,7 +78,8 @@
                 display: flex;
     
                 .title{
-                    margin-top: 3em;
+                    font-size: 40px;
+                    margin-top: 2em;
                 }
     
                 img{
@@ -70,12 +89,21 @@
                     top: 50%;
                     left: calc(100% - 90px);
                     transform: translate(-50%, -50%);
+
+                    @include media-down(sm){
+                        width: 150px;
+                    }
                 }
             }
     
             &-view{
-                p{
+                a{
+                    color: black;
                     font-size: 14px;
+
+                    &:hover{
+                        text-decoration: underline;
+                    }
                 }
             }
     

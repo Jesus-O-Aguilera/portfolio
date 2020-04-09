@@ -37,9 +37,53 @@ $(document).ready(function () {
     //     });
     // });
         
+    // $('.slider-work').slick({
+    //     // dots: true,
+    //     infinite: true,
+    //     speed: 300,
+    //     slidesToShow: 2,
+    //     centerMode: true,
+    //     // variableWidth: true
+    // });
         
 
+    $('.slider-work').slick({
+        arrows: false,
+        infinite: true,
+        slidesToShow: 2,
+        // centerMode: true,
+        // centerPadding: '40px',
+        responsive: [
+            {
+                breakpoint: 480,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
+    $('.next').click(function (e) { 
+        e.preventDefault();
+        $('.slider-work').slick('slickNext');
+    });
+
+    $('.prev').click(function (e) { 
+        e.preventDefault();
+        $('.slider-work').slick('slickPrev');
+    });
     
+
+    $('.slider-detail').slick({
+        arrows: true,
+        dots: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: false,
+        centerMode: false,
+        autoplay: false
+    });
 
 });
 
