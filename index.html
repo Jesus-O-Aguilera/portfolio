@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jesus Ocaña | Software Architect Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e0e0e0;
+            --accent-color: #ffc20f;
+            --secondary-text: #999;
+            --card-bg: #111;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .highlight { color: var(--accent-color); }
+        
+        /* --- PROGRESS BAR --- */
+        .progress-bar {
+            position: fixed; top: 0; left: 0; width: 0%; height: 4px;
+            background: var(--accent-color); z-index: 1001;
+        }
+
+        /* --- CUSTOM CURSOR --- */
+        .cursor-dot, .cursor-outline {
+            position: fixed; top: 0; left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%; z-index: 9999; pointer-events: none;
+        }
+        .cursor-dot { width: 8px; height: 8px; background-color: var(--accent-color); }
+        .cursor-outline {
+            width: 40px; height: 40px; border: 1px solid rgba(255, 194, 15, 0.5);
+        }
+
+        /* --- NAVBAR & MOBILE MENU --- */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px);
+        }
+        .logo { font-size: 1.2rem; font-weight: 700; z-index: 1001; }
+        
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-link { font-size: 0.85rem; text-transform: uppercase; color: var(--secondary-text); }
+        .nav-link:hover { color: var(--accent-color); }
+
+        /* Hamburger */
+        .menu-toggle {
+            display: none; flex-direction: column; gap: 6px; z-index: 1001;
+        }
+        .menu-toggle span {
+            width: 30px; height: 2px; background: var(--accent-color); transition: 0.3s;
+        }
+
+        /* Fullscreen Mobile Menu */
+        .mobile-menu {
+            position: fixed; top: 0; left: 100%; width: 100%; height: 100vh;
+            background: var(--bg-color); display: flex; flex-direction: column;
+            justify-content: center; align-items: center; gap: 2rem; z-index: 999;
+        }
+        .mobile-menu a { font-size: 2.5rem; font-weight: 700; color: var(--text-color); }
+
+        /* --- SECTIONS --- */
+        section { padding: 120px 10%; position: relative; }
+        
+        /* --- HERO --- */
+        .hero { min-height: 100vh; display: flex; align-items: center; }
+        .hero-text { flex: 1.5; z-index: 2; }
+        h1 { font-size: clamp(3rem, 7vw, 6rem); line-height: 1; margin-bottom: 2rem; }
+        .hero-visual { flex: 1; opacity: 0.7; transform: scale(1.1); }
+
+        /* --- INTERACTIVE SECTION (Exploration) --- */
+        .interactive-grid {
+            display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start;
+        }
+        .layer-nav { display: flex; flex-direction: column; gap: 1rem; }
+        .layer-btn {
+            padding: 20px; border: 1px solid #222; background: transparent;
+            color: var(--secondary-text); text-align: left; font-family: inherit;
+            font-size: 1.1rem; transition: 0.3s;
+        }
+        .layer-btn.active { border-left: 4px solid var(--accent-color); color: var(--accent-color); background: #111; }
+        
+        .layer-display {
+            background: #111; padding: 40px; border-radius: 8px; min-height: 300px;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+
+        /* --- MARQUEE --- */
+        .marquee-container { overflow: hidden; background: #000; padding: 40px 0; transform: rotate(-1deg); }
+        .marquee-row { display: flex; white-space: nowrap; }
+        .marquee-content { display: flex; animation: scroll 30s linear infinite; }
+        .brand-item { font-size: 2rem; font-weight: 800; color: #222; margin-right: 4rem; }
+        .brand-item:hover { color: var(--accent-color); }
+
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* --- BUTTONS --- */
+        .cta-btn {
+            display: inline-block; padding: 18px 40px; border: 2px solid var(--accent-color);
+            color: var(--accent-color); font-weight: 700; letter-spacing: 1px;
+            position: relative; overflow: hidden; z-index: 1; transition: 0.4s;
+        }
+        .cta-btn::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: var(--accent-color); transition: 0.4s; z-index: -1;
+        }
+        .cta-btn:hover::before { left: 0; }
+        .cta-btn:hover { color: #000; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 968px) {
+            .nav-links { display: none; }
+            .menu-toggle { display: flex; }
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 150px; }
+            .hero-visual { width: 100%; max-width: 300px; }
+            .interactive-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav>
+        <div class="logo hover-trigger highlight">&lt;JO / ARCHITECT&gt;</div>
+        <ul class="nav-links">
+            <li><a href="#expertise" class="nav-link hover-trigger">Expertise</a></li>
+            <li><a href="#interactive" class="nav-link hover-trigger">Soluciones</a></li>
+            <li><a href="#featured-work" class="nav-link hover-trigger">Marcas</a></li>
+            <li><a href="#contact" class="nav-link hover-trigger">Contacto</a></li>
+        </ul>
+        <div class="menu-toggle hover-trigger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#expertise" class="mobile-link">Expertise</a>
+        <a href="#interactive" class="mobile-link">Soluciones</a>
+        <a href="#featured-work" class="mobile-link">Marcas</a>
+        <a href="#contact" class="mobile-link">Contacto</a>
+    </div>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1 class="reveal-text">Jesus Ocaña <br> <span class="highlight">Software Architect.</span></h1>
+            <p class="reveal-text" style="max-width: 600px; font-size: 1.2rem; color: var(--secondary-text); margin-bottom: 2rem;">
+                Arquitecturas de alto rendimiento para ecosistemas globales. Especialista en Drupal Headless, React y Ciberseguridad.
+            </p>
+            <div class="reveal-text">
+                <a href="#contact" class="cta-btn hover-trigger magnetic-btn">Hablemos de tu Arquitectura</a>
+            </div>
+        </div>
+        <div class="hero-visual reveal-visual">
+            <div id="lottie-hero"></div>
+        </div>
+    </section>
+
+    <section id="interactive">
+        <h2 class="highlight" style="margin-bottom: 1rem;">Architectural Layers</h2>
+        <p style="margin-bottom: 3rem; color: var(--secondary-text);">Haz clic en las capas para ver cómo diseño soluciones escalables.</p>
+        
+        <div class="interactive-grid">
+            <div class="layer-nav">
+                <button class="layer-btn active hover-trigger" data-layer="frontend">01. Frontend / UI</button>
+                <button class="layer-btn hover-trigger" data-layer="backend">02. Headless Backend</button>
+                <button class="layer-btn hover-trigger" data-layer="security">03. Security & Audit</button>
+            </div>
+            <div class="layer-display" id="layerInfo">
+                <h3 class="highlight" id="layerTitle">Frontend / UI</h3>
+                <p id="layerText" style="margin-top: 1.5rem; font-size: 1.1rem;">
+                    Desarrollo de interfaces reactivas ultra-rápidas usando **React** y **Single Directory Components**. Enfoque en Micro-interactions y performance (Core Web Vitals).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured-work" style="padding: 100px 0;">
+        <div style="padding: 0 10%; margin-bottom: 3rem;">
+            <h2 class="highlight">Global Impact</h2>
+            <p>He colaborado con **Nestlé Health Science** y sus submarcas globales:</p>
+        </div>
+        <div class="marquee-container">
+            <div class="marquee-row">
+                <div class="marquee-content">
+                    <span class="brand-item">Nestlé Health Science</span>
+                    <span class="brand-item">Boost US</span>
+                    <span class="brand-item">Optifast Global</span>
+                    <span class="brand-item">Meritene ES</span>
+                    <span class="brand-item">Celltrient</span>
+                    <span class="brand-item">Compleat Benelux</span>
+                    <span class="brand-item">Minami PT</span>
+                    <span class="brand-item">Optifibre AT</span>
+                    <span class="brand-item">Nestlé Health Science</span>
+                    <span class="brand-item">Boost US</span>
+                    <span class="brand-item">Optifast Global</span>
+                    <span class="brand-item">Meritene ES</span>
+                    <span class="brand-item">Celltrient</span>
+                    <span class="brand-item">Compleat Benelux</span>
+                    <span class="brand-item">Minami PT</span>
+                    <span class="brand-item">Optifibre AT</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align: center; background: #080808;">
+        <h2 style="font-size: 3rem; margin-bottom: 2rem;">¿Listo para escalar?</h2>
+        <a href="mailto:tuemail@ejemplo.com" class="cta-btn hover-trigger magnetic-btn">Iniciar Consulta Técnica</a>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // --- 1. LOTTIE ---
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-hero'),
+            renderer: 'svg', loop: true, autoplay: true,
+            path: 'https://lottie.host/a8c4d705-3962-4558-a316-57a5316d890a/9Fz4K8e5a3.json'
+        });
+
+        // --- 2. CURSOR LOGIC ---
+        const dot = document.querySelector('.cursor-dot');
+        const outline = document.querySelector('.cursor-outline');
+        window.addEventListener("mousemove", e => {
+            gsap.to(dot, {x: e.clientX, y: e.clientY, duration: 0.1});
+            gsap.to(outline, {x: e.clientX, y: e.clientY, duration: 0.3});
+        });
+
+        document.querySelectorAll('.hover-trigger').forEach(el => {
+            el.addEventListener('mouseenter', () => gsap.to(outline, {scale: 2, backgroundColor: "rgba(255,194,15,0.1)", border: "none"}));
+            el.addEventListener('mouseleave', () => gsap.to(outline, {scale: 1, backgroundColor: "transparent", border: "1px solid rgba(255,194,15,0.5)"}));
+        });
+
+        // --- 3. MOBILE MENU GSAP ---
+        const burger = document.getElementById('hamburger');
+        const menu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+
+        burger.addEventListener('click', () => {
+            if(!menuOpen) {
+                gsap.to(menu, {left: 0, duration: 0.6, ease: "power4.out"});
+                gsap.to(burger.children[0], {rotation: 45, y: 8});
+                gsap.to(burger.children[1], {opacity: 0});
+                gsap.to(burger.children[2], {rotation: -45, y: -8});
+            } else {
+                gsap.to(menu, {left: "100%", duration: 0.6, ease: "power4.in"});
+                gsap.to(burger.children[0], {rotation: 0, y: 0});
+                gsap.to(burger.children[1], {opacity: 1});
+                gsap.to(burger.children[2], {rotation: 0, y: 0});
+            }
+            menuOpen = !menuOpen;
+        });
+
+        // Cerrar al clickear link
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => burger.click());
+        });
+
+        // --- 4. INTERACTIVE LAYERS LOGIC ---
+        const layerData = {
+            frontend: { title: "Frontend / UI", text: "Desarrollo de interfaces reactivas ultra-rápidas usando React y Single Directory Components (SDC). Enfoque en Micro-interactions y performance extrema." },
+            backend: { title: "Headless Backend", text: "Arquitectura robusta con Drupal 10/11. APIs desacopladas para alimentar múltiples plataformas desde una única fuente de verdad." },
+            security: { title: "Security & Audit", text: "Implementación de normativas OWASP, cifrado de datos y auditorías técnicas para asegurar la integridad de ecosistemas empresariales masivos." }
+        };
+
+        document.querySelectorAll('.layer-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelector('.layer-btn.active').classList.remove('active');
+                btn.classList.add('active');
+                const key = btn.getAttribute('data-layer');
+                
+                gsap.to("#layerInfo", { opacity: 0, y: 10, duration: 0.2, onComplete: () => {
+                    document.getElementById('layerTitle').innerText = layerData[key].title;
+                    document.getElementById('layerText').innerText = layerData[key].text;
+                    gsap.to("#layerInfo", { opacity: 1, y: 0, duration: 0.4 });
+                }});
+            });
+        });
+
+        // --- 5. SCROLL ANIMATIONS ---
+        gsap.to(".progress-bar", {
+            width: "100%", scrollTrigger: { scrub: 0.3 }
+        });
+
+        gsap.from(".reveal-text", {
+            y: 50, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out"
+        });
+
+        gsap.to(".hero-visual", {
+            y: 100, scrollTrigger: { trigger: ".hero", start: "top top", scrub: true }
+        });
+    </script>
+</body>
+</html>

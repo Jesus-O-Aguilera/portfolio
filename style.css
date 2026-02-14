@@ -1,0 +1,32 @@
+/* Transiciones base suaves */
+a, button, .project-card {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Micro-interacción: Botón */
+.cta-btn {
+    background: transparent;
+    border: 1px solid #333;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 0%; height: 100%;
+    background: #333;
+    z-index: -1;
+    transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1); /* Curva suave */
+}
+
+.cta-btn:hover::before {
+    width: 100%; /* Llenado suave al hover */
+}
+
+.cta-btn:hover {
+    color: #fff;
+    transform: translateY(-2px); /* Elevación sutil */
+}

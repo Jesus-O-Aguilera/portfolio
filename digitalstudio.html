@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Digital Party Studio | Experiencias Memorables</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Plus+Jakarta+Sans:wght@300;500;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6D28D9; /* Violeta Real */
+            --accent: #F97316;  /* Naranja Vibrante */
+            --bg: #FDFCFB;      /* Blanco Hueso */
+        }
+        body { 
+            background-color: var(--bg); 
+            color: #1a1a1a; 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        .serif { font-family: 'Playfair Display', serif; }
+        
+        /* 1. Experiencias Visuales: Gradientes Suaves */
+        .vibrant-gradient {
+            background: linear-gradient(135deg, #6D28D9 0%, #DB2777 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 4. Mobile-First: Navegación Estilo App */
+        .app-bar {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 400px; height: 65px;
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px);
+            border-radius: 30px; border: 1px solid rgba(0,0,0,0.1);
+            display: flex; justify-content: space-around; align-items: center; z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .category-card {
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            overflow: hidden;
+        }
+        .category-card:hover { transform: translateY(-10px); }
+
+        .image-reveal { clip-path: inset(100% 0 0 0); }
+    </style>
+</head>
+<body>
+
+    <section class="h-[90vh] flex flex-col justify-center items-center text-center px-6 relative">
+        <div id="float-blob" class="absolute w-72 h-72 bg-orange-200 rounded-full blur-[100px] opacity-50 -z-10"></div>
+        
+        <h1 class="serif text-6xl md:text-9xl leading-[0.9] mb-6">
+            Creamos <br> <span class="vibrant-gradient italic">Momentos</span> <br> Digitales
+        </h1>
+        <p class="text-lg md:text-xl font-medium opacity-70 max-w-lg mx-auto mb-8">
+            Diseño de experiencias para eventos que la gente realmente quiere compartir.
+        </p>
+        <button class="bg-black text-white px-10 py-5 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl">
+            COMIENZA TU EVENTO
+        </button>
+    </section>
+
+    <section class="py-20 overflow-hidden bg-zinc-50">
+        <div class="px-6 mb-10">
+            <h2 class="serif text-4xl md:text-6xl italic">Highlight Reels</h2>
+        </div>
+        <div class="flex gap-6 px-6" id="portfolio-track">
+            <div class="min-w-[300px] md:min-w-[450px] aspect-video bg-zinc-300 rounded-[2rem] relative overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-black/20 p-8 flex flex-col justify-end">
+                    <span class="text-white font-bold text-sm uppercase tracking-widest">Wedding Experience</span>
+                </div>
+            </div>
+            <div class="min-w-[300px] md:min-w-[450px] aspect-video bg-zinc-300 rounded-[2rem] relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800" class="object-cover w-full h-full">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-20 items-center">
+            <div class="image-reveal-container rounded-[3rem] overflow-hidden shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=800" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <h2 class="serif text-5xl md:text-7xl mb-8">No es una web, es la <span class="italic text-orange-500">antesala</span> de tu fiesta.</h2>
+                <p class="text-xl leading-relaxed opacity-80 mb-6">
+                    Contamos la historia de tu evento desde que el invitado recibe el link. Emoción, anticipación y tecnología.
+                </p>
+                <div class="p-6 border-l-4 border-purple-600 bg-purple-50 rounded-r-2xl">
+                    <p class="italic text-lg">"Hicieron que nuestra graduación se sintiera como un festival de música de lujo."</p>
+                    <p class="font-bold mt-2">— Promo 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6">
+        <h2 class="serif text-4xl mb-12 text-center">Diseñamos para cada vibra</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="category-card h-80 bg-purple-100 rounded-[2.5rem] flex flex-col justify-center items-center p-6 text-center">
+                <span class="text-4xl mb-4">💍</span>
+                <h3 class="font-extrabold uppercase text-sm tracking-tighter">Bodas <br> Atemporales</h3>
+            </div>
+            <div class="category-card h-80 bg-orange-100 rounded-[2.5rem] flex flex-col justify-center items-center p-6 text-center">
+                <span class="text-4xl mb-4">🎈</span>
+                <h3 class="font-extrabold uppercase text-sm tracking-tighter">Kids <br> Interactive</h3>
+            </div>
+            <div class="category-card h-80 bg-blue-100 rounded-[2.5rem] flex flex-col justify-center items-center p-6 text-center">
+                <span class="text-4xl mb-4">🎓</span>
+                <h3 class="font-extrabold uppercase text-sm tracking-tighter">Grads <br> Night</h3>
+            </div>
+            <div class="category-card h-80 bg-zinc-900 text-white rounded-[2.5rem] flex flex-col justify-center items-center p-6 text-center">
+                <span class="text-4xl mb-4">🏢</span>
+                <h3 class="font-extrabold uppercase text-sm tracking-tighter text-white">Corp <br> Experiences</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-zinc-900 text-white rounded-t-[4rem]">
+        <div class="max-w-4xl mx-auto px-6 text-center mb-16">
+            <h2 class="serif text-5xl md:text-7xl mb-6 text-orange-400 italic">Invitaciones <br> Inteligentes</h2>
+            <p class="opacity-60 text-lg">Tarjetas animadas, códigos QR personalizados y confirmación directa a WhatsApp.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto">
+            <div class="bg-white/5 p-4 rounded-[2rem] border border-white/10 hover:border-orange-400 transition-colors">
+                <div class="w-full aspect-[9/16] bg-zinc-800 rounded-2xl mb-6 relative group overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/40 transition-opacity">
+                        <button class="bg-white text-black px-6 py-2 rounded-full font-bold">Ver Demo</button>
+                    </div>
+                    <div class="w-full h-full flex flex-col items-center justify-center p-10 text-center">
+                        <div class="w-20 h-20 border-2 border-orange-400 rounded-full mb-4 animate-ping"></div>
+                        <p class="text-xs tracking-[0.2em] text-orange-400">ANIMACIÓN DIGITAL</p>
+                    </div>
+                </div>
+                <h4 class="font-bold text-xl mb-2 text-center">Modern Minimal</h4>
+                <p class="text-center opacity-50 text-sm">QR + Galería de fotos</p>
+            </div>
+            </div>
+    </section>
+
+    <section class="py-32 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="serif text-5xl mb-10">¿Hacemos algo <br> inolvidable?</h2>
+            <form class="space-y-6">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <input type="text" placeholder="Tu Nombre" class="flex-1 p-6 bg-zinc-100 rounded-2xl outline-none focus:ring-2 ring-purple-500 transition-all">
+                    <select class="flex-1 p-6 bg-zinc-100 rounded-2xl outline-none">
+                        <option>Tipo de Evento</option>
+                        <option>Boda</option>
+                        <option>Corporativo</option>
+                    </select>
+                </div>
+                <button class="w-full p-6 bg-purple-600 text-white font-bold rounded-2xl text-xl hover:bg-orange-500 transition-colors">
+                    Hablemos por WhatsApp ✉️
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <div class="app-bar">
+        <button class="text-xl">🏠</button>
+        <button class="text-xl">📸</button>
+        <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg -mt-8 border-4 border-[#FDFCFB]">
+            📅
+        </div>
+        <button class="text-xl">💌</button>
+        <button class="text-xl">💬</button>
+    </div>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Animación Hero (Punto 1)
+        gsap.from("h1", { duration: 1.5, y: 50, opacity: 0, ease: "power4.out" });
+        gsap.to("#float-blob", { duration: 10, x: 100, y: 50, repeat: -1, yoyo: true, ease: "sine.inOut" });
+
+        // 9. Scroll Horizontal Portfolio (Punto 9)
+        gsap.to("#portfolio-track", {
+            scrollTrigger: {
+                trigger: "#portfolio-track",
+                start: "top bottom",
+                scrub: 1,
+            },
+            x: -200
+        });
+
+        // 2. Revelado de Imagen (Storytelling)
+        gsap.from(".image-reveal-container", {
+            scrollTrigger: {
+                trigger: ".image-reveal-container",
+                start: "top 80%",
+            },
+            scale: 0.8,
+            opacity: 0,
+            duration: 1.5,
+            ease: "expo.out"
+        });
+
+        // 8. Animación Cards (Segmentación)
+        gsap.from(".category-card", {
+            scrollTrigger: {
+                trigger: ".category-card",
+                start: "top 90%",
+            },
+            y: 30,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 0.8
+        });
+
+    </script>
+</body>
+</html>
