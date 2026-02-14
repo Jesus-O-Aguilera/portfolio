@@ -27,16 +27,15 @@
             --bg-alt: #fafafa;
         }
 
-        /* --- RESET & ANTI-SCROLL --- */
+        /* --- RESET & ESTRUCTURA ANTI-SCROLL --- */
         * { 
             margin: 0; padding: 0; box-sizing: border-box; 
             -webkit-tap-highlight-color: transparent; 
-            cursor: none; 
         }
         
         html, body { 
             max-width: 100%;
-            overflow-x: hidden; 
+            overflow-x: hidden; /* Garantiza que no haya scroll horizontal */
             position: relative;
             background-color: var(--bg); color: var(--text);
             font-family: 'Space Grotesk', sans-serif;
@@ -44,7 +43,7 @@
         }
 
         h1, h2, h3 { font-weight: 700; letter-spacing: -0.04em; }
-        a { text-decoration: none; color: inherit; -webkit-appearance: none; }
+        a { text-decoration: none; color: inherit; cursor: pointer; }
 
         /* --- CURSOR LÍQUIDO --- */
         .cursor-dot {
@@ -65,7 +64,8 @@
         }
         .nav-links { display: flex; gap: 2rem; }
         .nav-link { font-size: 0.8rem; text-transform: uppercase; font-weight: 500; letter-spacing: 1px; color: var(--text-muted); }
-        .burger { display: none; flex-direction: column; gap: 5px; z-index: 1001; }
+        
+        .burger { display: none; flex-direction: column; gap: 5px; z-index: 1001; cursor: pointer; }
         .burger span { width: 25px; height: 2px; background: var(--text); transition: 0.3s; }
 
         .mobile-overlay {
@@ -79,6 +79,11 @@
         .hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; padding: 8% 10%; }
         .hero-tag { color: var(--text-muted); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 20px; display: block;}
         h1 { font-size: clamp(3.5rem, 7vw, 7.5rem); line-height: 0.9; margin-bottom: 2rem; }
+
+        /* --- COLABORACIONES --- */
+        .collabs { padding: 60px 10%; background: #fff; border-top: 1px solid var(--border-color); }
+        .collabs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
+        .collab-item { font-weight: 700; font-size: 1rem; color: #bbb; transition: 0.4s; text-transform: uppercase; }
 
         /* --- SOBRE MÍ & IMAGEN --- */
         #about { padding: 120px 10%; border-top: 1px solid var(--border-color); }
@@ -97,35 +102,32 @@
         .skill-cat ul { list-style: none; }
         .skill-cat ul li { font-size: 0.95rem; margin-bottom: 5px; font-weight: 500; }
 
-        /* --- PROYECTOS (FIX PARA IPHONE) --- */
+        /* --- TARJETAS DE PROYECTO --- */
         #projects { padding: 120px 10%; border-top: 1px solid var(--border-color); }
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 50px; }
-        .project-card { display: none; flex-direction: column; border-bottom: 1px solid var(--border-color); padding-bottom: 30px; }
+        .project-card { display: none; flex-direction: column; border-bottom: 1px solid var(--border-color); padding-bottom: 30px; position: relative; }
         .img-container { width: 100%; aspect-ratio: 16/10; overflow: hidden; background: #f9f9f9; margin-bottom: 25px; border: 1px solid var(--border-color); position: relative;}
         
-        .img-overlay { 
-            position: absolute; top:0; left:0; width:100%; height:100%; 
-            background: rgba(0,0,0,0.02); display:flex; align-items:center; 
-            justify-content:center; opacity:0; transition: 0.3s;
-        }
-
+        .img-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.02); display:flex; align-items:center; justify-content:center; opacity:0; transition: 0.3s; }
+        .project-card:hover .img-overlay { opacity: 1; }
         .img-container img { width: 100%; height: 100%; transition: 0.8s; object-fit: contain; }
+
         .card-meta { display: flex; justify-content: space-between; align-items: flex-end; }
         .card-meta h3 { font-size: 1.2rem; }
         .card-meta p { color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; }
 
         .btn-group { display: flex; gap: 15px; }
-        .view-details, .nav-link-btn { 
+        .view-details, .nav-link-visit { 
             cursor: pointer; border-bottom: 1px solid #000; color: var(--text); 
             font-size: 0.8rem; text-transform: uppercase; font-weight: 600;
-            padding-bottom: 2px; -webkit-appearance: none;
+            padding-bottom: 2px; -webkit-appearance: none; border-radius: 0;
+            background: none; border-top: none; border-left: none; border-right: none;
         }
 
         .load-more-btn {
             display: inline-block; padding: 15px 40px; border: 1px solid var(--text);
-            background: transparent; color: var(--text); font-family: inherit; 
-            font-weight: 600; margin-top: 80px; transition: 0.3s;
-            -webkit-appearance: none; border-radius: 0;
+            background: transparent; color: var(--text); font-family: inherit; font-weight: 600; 
+            margin-top: 80px; transition: 0.3s; -webkit-appearance: none; border-radius: 0;
         }
 
         /* --- MODAL --- */
@@ -135,22 +137,27 @@
             display: none; align-items: center; justify-content: center; padding: 20px;
         }
         .modal-content { max-width: 600px; width: 100%; position: relative; }
-        .modal-close { position: absolute; top: -60px; right: 0; font-size: 0.8rem; text-transform: uppercase; border-bottom: 1px solid #000; }
+        .modal-close { position: absolute; top: -60px; right: 0; font-size: 0.8rem; text-transform: uppercase; border-bottom: 1px solid #000; cursor: pointer; }
+        .modal-body h2 { font-size: 2.5rem; margin-bottom: 1rem; line-height: 1; }
+        .tech-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        .tech-tags span { font-size: 0.7rem; padding: 5px 12px; border: 1px solid var(--border-color); text-transform: uppercase; }
 
-        /* --- MEDIA QUERIES IPHONE / MOBILE --- */
+        /* --- CONTACTO --- */
+        #contact { padding: 120px 10%; background: var(--bg-alt); border-top: 1px solid var(--border-color); }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+        .contact-card { padding: 40px; background: #fff; border: 1px solid var(--border-color); }
+
+        /* --- IPHONE & MOBILE FIXES --- */
         @media (max-width: 968px) {
             * { cursor: auto !important; }
             .cursor-dot, .cursor-outline { display: none !important; }
+            .nav-links { display: none; }
+            .burger { display: flex; cursor: pointer; }
             .about-grid { grid-template-columns: 1fr; gap: 40px; }
             .about-img { width: 100%; max-width: 350px; margin: 0 auto; }
             h1 { font-size: 3rem; }
-            
-            /* Fix para evitar el doble clic: El overlay no bloquea el toque */
-            .img-overlay { display: none; } 
-            .project-card:hover img { transform: none; }
-            
-            /* Forzar visualización de botones en mobile */
-            .view-details, .nav-link-btn { color: var(--text); border-color: var(--text); }
+            .img-overlay { display: none !important; } /* Fix doble clic iOS */
+            .project-card { display: flex !important; opacity: 1 !important; transform: none !important; }
         }
     </style>
 </head>
@@ -160,29 +167,29 @@
     <div class="cursor-outline"></div>
 
     <nav>
-        <div class="logo">&lt;SOFTWARE ARCHITECT /&gt;</div>
+        <div class="logo hover-trigger">&lt;SOFTWARE ARCHITECT /&gt;</div>
         <div class="nav-links">
-            <a href="#about" class="nav-link">Sobre mí</a>
-            <a href="#projects" class="nav-link">Proyectos</a>
-            <a href="#contact" class="nav-link">Contacto</a>
+            <a href="#about" class="nav-link hover-trigger">Sobre mí</a>
+            <a href="#projects" class="nav-link hover-trigger">Proyectos</a>
+            <a href="#contact" class="nav-link hover-trigger">Contacto</a>
         </div>
-        <div class="burger" id="burger"><span></span><span></span><span></span></div>
+        <div class="burger hover-trigger" id="burger"><span></span><span></span><span></span></div>
     </nav>
 
     <div class="mobile-overlay" id="mobileMenu">
-        <a href="#about">Sobre mí</a>
-        <a href="#projects">Proyectos</a>
-        <a href="#contact">Contacto</a>
+        <a href="#about" class="hover-trigger">Sobre mí</a>
+        <a href="#projects" class="hover-trigger">Proyectos</a>
+        <a href="#contact" class="hover-trigger">Contacto</a>
     </div>
 
     <div class="modal-overlay" id="projectModal">
         <div class="modal-content">
-            <div class="modal-close" id="closeModal">CERRAR (ESC)</div>
+            <div class="modal-close hover-trigger" id="closeModal">CERRAR (ESC)</div>
             <div class="modal-body">
                 <h4 id="modalClient" style="font-size: 0.7rem; color: #888; text-transform: uppercase; margin-bottom: 10px;">CLIENTE</h4>
-                <h2 id="modalTitle" style="font-size: 2.5rem; line-height: 1; margin-bottom: 20px;">Título</h2>
-                <p id="modalDesc" style="font-size: 1.1rem; color: #444; margin-bottom: 30px;">Descripción.</p>
-                <div class="tech-tags" id="modalTech" style="display: flex; gap: 10px; flex-wrap: wrap;"></div>
+                <h2 id="modalTitle">Título del Proyecto</h2>
+                <p id="modalDesc" style="font-size: 1.1rem; color: #444; margin-top: 20px;">Descripción detallada.</p>
+                <div class="tech-tags" id="modalTech"></div>
             </div>
         </div>
     </div>
@@ -192,14 +199,23 @@
         <h1 class="reveal">Arquitectura robusta. <br> Sistemas automatizados.</h1>
     </section>
 
+    <section class="collabs">
+        <div class="collabs-grid">
+            <div class="collab-item">Fiscalía del Estado de Tabasco</div>
+            <div class="collab-item">Nestlé Health Science</div>
+            <div class="collab-item">Nestlé Profesional</div>
+            <div class="collab-item">Nescafé</div>
+        </div>
+    </section>
+
     <section id="about">
         <div class="about-grid">
             <div class="about-text">
                 <h2 class="hero-tag" style="color:var(--text)">EL PERFIL</h2>
-                <p>Especialista en arquitectura Drupal, React, Node para el diseño de estrategias digitales personalizadas y lógica de negocio crítica.</p>
-                <p>He desarrollado ecosistemas digitales para marcas globales asegurando escalabilidad y blindaje de seguridad.</p>
+                <p>Especialista en arquitectura Drupal, React y Node para el diseño de estrategias digitales personalizadas y lógica de negocio crítica.</p>
+                <p>He desarrollado ecosistemas digitales para marcas globales asegurando escalabilidad, blindaje de seguridad y rendimiento bajo alta demanda.</p>
             </div>
-            <div class="about-img"><img src="profile.png" alt="Jesus Ocaña"></div>
+            <div class="about-img hover-trigger"><img src="profile.png" alt="Jesus Ocaña"></div>
             <div class="skills-block">
                 <div class="skill-cat">
                     <h4>Core Architecture</h4>
@@ -207,7 +223,7 @@
                 </div>
                 <div class="skill-cat">
                     <h4>Frontend Layer</h4>
-                    <ul><li>React / JS</li><li>SDC / GSAP</li></ul>
+                    <ul><li>React / JS</li><li>SDC / GSAP</li><li>Performance UI</li></ul>
                 </div>
             </div>
         </div>
@@ -217,98 +233,102 @@
         <h2 class="hero-tag" style="color:var(--text); margin-bottom: 60px;">PROYECTOS SELECCIONADOS</h2>
         <div class="projects-grid" id="projectGrid">
             
-            <div class="project-card" 
+            <div class="project-card hover-trigger" 
                  data-title="Nestlé Medical Hub" data-client="Nestlé Health Science®"
-                 data-desc="Arquitectura centralizada en Drupal para gestión médica. Implementación de SDC y optimización de assets globales."
+                 data-desc="Arquitectura centralizada en Drupal para gestión de contenido médico. Implementación de SDC y optimización de entrega de assets globales."
                  data-tech="Drupal, PHP 8, SDC, Performance">
-                <div class="img-container"><img src="medical.png"></div>
+                <div class="img-container"><img src="medical.png"><div class="img-overlay"></div></div>
                 <div class="card-meta">
-                    <div><h3>Nestle Medical Hub</h3><p>Nestlé Health Science®</p></div>
+                    <div><h3>Nestle Hub</h3><p>Health Science®</p></div>
                     <div class="btn-group">
-                        <span class="view-details">DETALLES</span>
-                        <a target="_blank" href="https://www.nestlehealthscience.com/" class="nav-link-btn">VISITAR</a>
+                        <button class="view-details">DETALLES</button>
+                        <a target="_blank" href="https://www.nestlehealthscience.com/" class="nav-link-visit">VISITAR</a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card"
-                 data-title="Nestlé Gerber®" data-client="Promoción Web + BOT WhatsApp"
-                 data-desc="Arquitectura para promociones masivas. Integración de Webhooks con API de WhatsApp y validación en tiempo real."
+            <div class="project-card hover-trigger"
+                 data-title="Nestlé Gerber®" data-client="BOT WhatsApp"
+                 data-desc="Arquitectura para promociones masivas. Integración de Webhooks con API de WhatsApp y lógica de validación concurrente mediante Node.js."
                  data-tech="Node.js, WhatsApp API, React, Redis">
-                <div class="img-container"><img src="gerber.png"></div>
+                <div class="img-container"><img src="gerber.png"><div class="img-overlay"></div></div>
                 <div class="card-meta">
-                    <div><h3>Nestlé Gerber®</h3><p>BOT WhatsApp</p></div>
+                    <div><h3>Nestlé Gerber®</h3><p>WhatsApp BOT</p></div>
                     <div class="btn-group">
-                        <span class="view-details">DETALLES</span>
-                        <a target="_blank" href="https://promos.nestle.com.mx/mibebeg/" class="nav-link-btn">VISITAR</a>
+                        <button class="view-details">DETALLES</button>
+                        <a target="_blank" href="https://promos.nestle.com.mx/mibebeg/" class="nav-link-visit">VISITAR</a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card"
-                 data-title="Sala de Prensa FET" data-client="Fiscalía del Estado de Tabasco"
-                 data-desc="Módulo de alta disponibilidad para comunicados oficiales. Estructura optimizada para consultas masivas."
-                 data-tech="PHP, MySQL, Seguridad, Backend">
-                <div class="img-container"><img src="logo_2026-FET.png"></div>
+            <div class="project-card hover-trigger"
+                 data-title="Sala de Prensa FET" data-client="Fiscalía de Tabasco"
+                 data-desc="Módulo institucional de alta disponibilidad. Estructura de datos optimizada para consultas masivas y blindaje de seguridad."
+                 data-tech="PHP 8, MySQL, Seguridad, Backend">
+                <div class="img-container"><img src="logo_2026-FET.png"><div class="img-overlay"></div></div>
                 <div class="card-meta">
-                    <div><h3>Fiscalía Tabasco</h3><p>Sala de Prensa</p></div>
+                    <div><h3>Fiscalía Tabasco</h3><p>Prensa</p></div>
                     <div class="btn-group">
-                        <span class="view-details">DETALLES</span>
-                        <a target="_blank" href="https://www.fiscaliatabasco.gob.mx/Boletin/Historico" class="nav-link-btn">VISITAR</a>
+                        <button class="view-details">DETALLES</button>
+                        <a target="_blank" href="https://www.fiscaliatabasco.gob.mx/Boletin/Historico" class="nav-link-visit">VISITAR</a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card"
+            <div class="project-card hover-trigger"
                  data-title="Bebidas BOOST" data-client="Nestlé Health Science®"
-                 data-desc="Desarrollo multiregión US/MX. Arquitectura escalable para tráfico masivo y SEO técnico avanzado."
+                 data-desc="Plataforma multiregión US/MX. Arquitectura escalable y SEO técnico avanzado para alto posicionamiento orgánico."
                  data-tech="Drupal, Multilingual, SEO Tech">
-                <div class="img-container"><img src="boost.png"></div>
+                <div class="img-container"><img src="boost.png"><div class="img-overlay"></div></div>
                 <div class="card-meta">
-                    <div><h3>Bebidas BOOST</h3><p>Nestlé Health Science®</p></div>
+                    <div><h3>Bebidas BOOST</h3><p>Nestlé HS®</p></div>
                     <div class="btn-group">
-                        <span class="view-details">DETALLES</span>
-                        <a target="_blank" href="https://www.boost.com/" class="nav-link-btn">VISITAR</a>
+                        <button class="view-details">DETALLES</button>
+                        <a target="_blank" href="https://www.boost.com/" class="nav-link-visit">VISITAR</a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card"
-                 data-title="Plataforma Deproapro" data-client="Nestlé Profesional®"
-                 data-desc="LMS para capacitación profesional. Rutas de aprendizaje dinámicas mediante lógica en Node.js."
-                 data-tech="E-learning, Node.js, React">
-                <div class="img-container"><img src="deproapro.png"></div>
+            <div class="project-card hover-trigger"
+                 data-title="Deproapro LMS" data-client="Nestlé Profesional®"
+                 data-desc="Plataforma de capacitación profesional. Implementación de rutas de aprendizaje dinámicas mediante lógica en Node.js."
+                 data-tech="Node.js, React, E-learning">
+                <div class="img-container"><img src="deproapro.png"><div class="img-overlay"></div></div>
                 <div class="card-meta">
                     <div><h3>Deproapro</h3><p>Nestlé Profesional®</p></div>
                     <div class="btn-group">
-                        <span class="view-details">DETALLES</span>
-                        <a target="_blank" href="https://www.deproapro.com.mx/" class="nav-link-btn">VISITAR</a>
+                        <button class="view-details">DETALLES</button>
+                        <a target="_blank" href="https://www.deproapro.com.mx/" class="nav-link-visit">VISITAR</a>
                     </div>
                 </div>
             </div>
 
         </div>
-        <div style="text-align: center;"><button class="load-more-btn" id="loadMoreBtn">Ver más arquitectura</button></div>
+        <div style="text-align: center;"><button class="load-more-btn hover-trigger" id="loadMoreBtn">Ver más arquitectura</button></div>
     </section>
 
-    <section id="contact" style="padding: 120px 10%; background: var(--bg-alt);">
+    <section id="contact">
         <h2 class="hero-tag">CONTACTO</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px;">
-            <a href="mailto:jesus_aguilera_o@hotmail.com" style="padding: 30px; background: #fff; border: 1px solid var(--border-color);">
-                <h4 style="font-size: 0.7rem; color: #888; text-transform: uppercase;">Email</h4>
-                <span style="font-weight: 600;">jesus_aguilera_o@hotmail.com</span>
-            </a>
-            <a href="https://wa.me/9931746755" target="_blank" style="padding: 30px; background: #fff; border: 1px solid var(--border-color);">
-                <h4 style="font-size: 0.7rem; color: #888; text-transform: uppercase;">WhatsApp</h4>
-                <span style="font-weight: 600;">Enviar Mensaje Directo</span>
-            </a>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h4 style="font-size: 0.7rem; color: #888; text-transform: uppercase; margin-bottom: 10px;">Email</h4>
+                <a href="mailto:jesus_aguilera_o@hotmail.com" style="font-weight: 600; border-bottom: 1px solid #000;">jesus_aguilera_o@hotmail.com</a>
+            </div>
+            <div class="contact-card">
+                <h4 style="font-size: 0.7rem; color: #888; text-transform: uppercase; margin-bottom: 10px;">WhatsApp</h4>
+                <a href="https://wa.me/9931746755" target="_blank" style="font-weight: 600; border-bottom: 1px solid #000;">Enviar Mensaje Directo</a>
+            </div>
+            <div class="contact-card">
+                <h4 style="font-size: 0.7rem; color: #888; text-transform: uppercase; margin-bottom: 10px;">Repositorios</h4>
+                <a href="https://gitlab.com/jesus_o_aguilera" target="_blank" style="font-weight: 600; border-bottom: 1px solid #000;">GitLab Profile</a>
+            </div>
         </div>
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <script>
-        // --- 1. CURSOR (DESKTOP ONLY) ---
+        // --- 1. CURSOR (DESKTOP) ---
         if (window.innerWidth > 968) {
             gsap.set(".cursor-dot, .cursor-outline", {xPercent: -50, yPercent: -50});
             let xDot = gsap.quickTo(".cursor-dot", "x", {duration: 0.1});
@@ -316,6 +336,11 @@
             let xOut = gsap.quickTo(".cursor-outline", "x", {duration: 0.5});
             let yOut = gsap.quickTo(".cursor-outline", "y", {duration: 0.5});
             window.addEventListener("mousemove", e => { xDot(e.clientX); yDot(e.clientY); xOut(e.clientX); yOut(e.clientY); });
+            
+            document.querySelectorAll('.hover-trigger').forEach(el => {
+                el.addEventListener('mouseenter', () => gsap.to(".cursor-outline", {scale: 2}));
+                el.addEventListener('mouseleave', () => gsap.to(".cursor-outline", {scale: 1}));
+            });
         }
 
         // --- 2. MENU MOBILE ---
@@ -336,13 +361,12 @@
         burger.addEventListener('click', toggleMenu);
         document.querySelectorAll('#mobileMenu a').forEach(link => link.addEventListener('click', toggleMenu));
 
-        // --- 3. MODAL (FIXED FOR TOUCH) ---
+        // --- 3. MODAL LOGIC ---
         const modal = document.getElementById('projectModal');
         const closeModal = document.getElementById('closeModal');
         
         document.querySelectorAll('.view-details').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
+            btn.addEventListener('click', () => {
                 const card = btn.closest('.project-card');
                 document.getElementById('modalTitle').innerText = card.dataset.title;
                 document.getElementById('modalClient').innerText = card.dataset.client;
@@ -351,7 +375,6 @@
                 techContainer.innerHTML = '';
                 card.dataset.tech.split(',').forEach(t => {
                     const span = document.createElement('span');
-                    span.style.cssText = "font-size: 0.7rem; padding: 5px 12px; border: 1px solid #e5e5e5; text-transform: uppercase;";
                     span.innerText = t.trim();
                     techContainer.appendChild(span);
                 });
@@ -362,6 +385,7 @@
 
         const closeFunc = () => { gsap.to(modal, {opacity: 0, duration: 0.3, onComplete: () => modal.style.display = 'none'}); };
         closeModal.addEventListener('click', closeFunc);
+        window.addEventListener('keydown', e => { if(e.key === 'Escape') closeFunc(); });
         modal.addEventListener('click', e => { if(e.target === modal) closeFunc(); });
 
         // --- 4. LOAD MORE & ENTRANCE ---
@@ -375,7 +399,7 @@
         }
         document.getElementById('loadMoreBtn').addEventListener('click', () => { visibleCount += 3; showCards(); });
         showCards();
-        gsap.from(".reveal", { y: 40, opacity: 0, duration: 1, stagger: 0.2 });
+        gsap.from(".reveal", { y: 40, opacity: 0, duration: 1, stagger: 0.2, ease: "power4.out" });
     </script>
 </body>
 </html>
