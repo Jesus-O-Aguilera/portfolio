@@ -27,18 +27,16 @@
             --bg-alt: #fafafa;
         }
 
-        /* --- RESET & ESTRUCTURA ANTI-SCROLL --- */
+        /* --- RESET & ANTI-SCROLL HORIZONTAL --- */
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
         
         html, body { 
             max-width: 100%;
-            overflow-x: hidden; /* Garantiza que no haya scroll horizontal */
+            overflow-x: hidden; 
             position: relative;
-            background-color: var(--bg); 
-            color: var(--text);
+            background-color: var(--bg); color: var(--text);
             font-family: 'Space Grotesk', sans-serif;
-            line-height: 1.6; 
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.6; -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3 { font-weight: 700; letter-spacing: -0.04em; }
@@ -70,7 +68,6 @@
             position: fixed; top: 0; left: 100%; width: 100%; height: 100vh;
             background: var(--bg); display: flex; flex-direction: column;
             justify-content: center; align-items: center; gap: 2rem; z-index: 1000;
-            overflow: hidden; /* Evita fugas en el overlay */
         }
         .mobile-overlay a { font-size: 2rem; font-weight: 700; }
 
@@ -85,7 +82,7 @@
         .collab-item { font-weight: 700; font-size: 1rem; color: #bbb; transition: 0.4s; text-transform: uppercase; }
         .collab-item:hover { color: var(--text); }
 
-        /* --- SOBRE MÍ --- */
+        /* --- SOBRE MÍ & PROFILE IMAGE --- */
         #about { padding: 120px 10%; border-top: 1px solid var(--border-color); }
         .about-grid { display: grid; grid-template-columns: 1.1fr 0.8fr 1fr; gap: 50px; align-items: center; }
         .about-text p { font-size: 1.15rem; color: #444; margin-bottom: 1.5rem; }
@@ -95,7 +92,10 @@
             overflow: hidden; border: 1px solid var(--border-color);
             position: relative; background: var(--bg-alt);
         }
-        .about-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.6s; }
+        .about-img img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: grayscale(100%); transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
         .about-img:hover img { filter: grayscale(0%); transform: scale(1.03); }
 
         .skills-block { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
@@ -103,22 +103,33 @@
         .skill-cat ul { list-style: none; }
         .skill-cat ul li { font-size: 0.95rem; margin-bottom: 5px; font-weight: 500; }
 
-        /* --- PROYECTOS --- */
+        /* --- TARJETAS DE PROYECTO --- */
         #projects { padding: 120px 10%; border-top: 1px solid var(--border-color); }
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 50px; }
         .project-card { display: none; flex-direction: column; border-bottom: 1px solid var(--border-color); padding-bottom: 30px; position: relative; }
         .img-container { width: 100%; aspect-ratio: 16/10; overflow: hidden; background: #f9f9f9; margin-bottom: 25px; border: 1px solid var(--border-color); position: relative;}
         
-        .img-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.02); display:flex; align-items:center; justify-content:center; opacity:0; transition: 0.3s; }
+        .img-overlay { 
+            position: absolute; top:0; left:0; width:100%; height:100%; 
+            background: rgba(0,0,0,0.02); display:flex; align-items:center; 
+            justify-content:center; opacity:0; transition: 0.3s;
+        }
         .project-card:hover .img-overlay { opacity: 1; }
+
         .img-container img { width: 100%; height: 100%; transition: 0.8s; object-fit: contain; }
         .project-card:hover img { filter: grayscale(0%); transform: scale(1.05); }
+        .card-meta { display: flex; justify-content: space-between; align-items: flex-end; }
+        .card-meta h3 { font-size: 1.2rem; }
+        .card-meta p { color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; }
 
         .btn-group { display: flex; gap: 15px; }
         .view-details { cursor: pointer; border-bottom: 1px solid #888; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
         .view-details:hover { color: var(--text); border-color: var(--text); }
 
-        .load-more-btn { display: inline-block; padding: 15px 40px; border: 1px solid var(--text); background: none; font-family: inherit; font-weight: 600; margin-top: 80px; transition: 0.3s; }
+        .load-more-btn {
+            display: inline-block; padding: 15px 40px; border: 1px solid var(--text);
+            background: none; font-family: inherit; font-weight: 600; margin-top: 80px; transition: 0.3s;
+        }
         .load-more-btn:hover { background: var(--text); color: var(--bg); }
 
         /* --- MODAL STYLES --- */
@@ -142,17 +153,14 @@
         .contact-card:hover { border-color: var(--text); transform: translateY(-5px); }
         .contact-card h4 { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 15px; }
 
-        /* --- AJUSTES MOBILE --- */
         @media (max-width: 968px) {
-            * { cursor: auto !important; } /* Restaurar cursor nativo */
-            .cursor-dot, .cursor-outline { display: none !important; } /* Desactivar cursor GSAP */
-            
+            * { cursor: auto !important; }
+            .cursor-dot, .cursor-outline { display: none !important; }
             .nav-links { display: none; }
             .burger { display: flex; }
             .about-grid { grid-template-columns: 1fr; gap: 50px; }
             .about-img { width: 100%; max-width: 400px; margin: 0 auto; }
-            .hero { padding: 20% 10%; }
-            h1 { font-size: 4rem; }
+            h1 { font-size: 3.2rem; }
         }
     </style>
 </head>
@@ -216,11 +224,11 @@
             <div class="skills-block">
                 <div class="skill-cat">
                     <h4>Core Architecture</h4>
-                    <ul><li>Drupal</li><li>Node / PHP 8</li></ul>
+                    <ul><li>Drupal</li><li>Node / PHP 8</li><li>Microservicios</li></ul>
                 </div>
                 <div class="skill-cat">
                     <h4>Frontend Layer</h4>
-                    <ul><li>React / JS</li><li>GSAP</li></ul>
+                    <ul><li>React / JS</li><li>SDC / GSAP</li><li>Performance UI</li></ul>
                 </div>
             </div>
         </div>
@@ -229,11 +237,48 @@
     <section id="projects">
         <h2 class="hero-tag" style="color:var(--text); margin-bottom: 60px;">PROYECTOS SELECCIONADOS</h2>
         <div class="projects-grid" id="projectGrid">
-            <div class="project-card hover-trigger" data-title="Nestlé Medical Hub" data-client="Nestlé Health Science®" data-desc="Arquitectura centralizada en Drupal e implementación de SDC." data-tech="Drupal, PHP 8, SDC">
+            
+            <div class="project-card hover-trigger" 
+                 data-title="Nestlé Medical Hub" data-client="Nestlé Health Science®"
+                 data-desc="Arquitectura centralizada en Drupal para la gestión de contenido médico especializado. Implementación de Single Directory Components (SDC) y optimización de entrega de assets globales."
+                 data-tech="Drupal, PHP 8, SDC, Performance">
                 <div class="img-container"><img src="medical.png"><div class="img-overlay"></div></div>
                 <div class="card-meta"><div><h3>Nestle Medical Hub</h3><p>Nestlé Health Science®</p></div><div class="btn-group"><span class="view-details">DETALLES</span><a target="_blank" href="https://www.nestlehealthscience.com/" class="nav-link" style="border-bottom:1px solid #000">VISITAR</a></div></div>
             </div>
+
+            <div class="project-card hover-trigger"
+                 data-title="Nestlé Gerber®" data-client="Promoción Web + BOT WhatsApp"
+                 data-desc="Diseño de arquitectura para promociones masivas. Integración de Webhooks con API de WhatsApp y lógica de validación de tickets en tiempo real mediante Node.js."
+                 data-tech="Node.js, WhatsApp API, React, Redis">
+                <div class="img-container"><img src="gerber.png"><div class="img-overlay"></div></div>
+                <div class="card-meta"><div><h3>Nestlé Gerber®</h3><p>Promoción Web + BOT WhatsApp</p></div><div class="btn-group"><span class="view-details">DETALLES</span><a target="_blank" href="https://promos.nestle.com.mx/mibebeg/" class="nav-link" style="border-bottom:1px solid #000">VISITAR</a></div></div>
             </div>
+
+            <div class="project-card hover-trigger"
+                 data-title="Sala de Prensa FET" data-client="Fiscalía del Estado de Tabasco"
+                 data-desc="Módulo de alta disponibilidad para la gestión de comunicados oficiales. Estructura de base de datos optimizada para consultas masivas y seguridad institucional."
+                 data-tech="PHP, MySQL, Seguridad, Backend">
+                <div class="img-container"><img src="logo_2026-FET.png"><div class="img-overlay"></div></div>
+                <div class="card-meta"><div><h3>Fiscalía del Estado de Tabasco</h3><p>Modulo de sala de prensa</p></div><div class="btn-group"><span class="view-details">DETALLES</span><a target="_blank" href="https://www.fiscaliatabasco.gob.mx/Boletin/Historico" class="nav-link" style="border-bottom:1px solid #000">VISITAR</a></div></div>
+            </div>
+
+            <div class="project-card hover-trigger"
+                 data-title="Bebidas BOOST" data-client="Nestlé Health Science®"
+                 data-desc="Desarrollo de plataforma multiregión (US/MX). Arquitectura escalable para soportar picos de tráfico y SEO técnico avanzado."
+                 data-tech="Drupal, Multilingual, SEO Tech, CSS3">
+                <div class="img-container"><img src="boost.png"><div class="img-overlay"></div></div>
+                <div class="card-meta"><div><h3>Bebidas BOOST US y MX</h3><p>Nestlé Health Science®</p></div><div class="btn-group"><span class="view-details">DETALLES</span><a target="_blank" href="https://www.boost.com/" class="nav-link" style="border-bottom:1px solid #000">VISITAR</a></div></div>
+            </div>
+
+            <div class="project-card hover-trigger"
+                 data-title="Plataforma Deproapro" data-client="Nestlé Profesional®"
+                 data-desc="LMS especializado para capacitación profesional. Implementación de rutas de aprendizaje dinámicas y seguimiento de progreso mediante Node.js."
+                 data-tech="E-learning, Node.js, React, UI/UX">
+                <div class="img-container"><img src="deproapro.png"><div class="img-overlay"></div></div>
+                <div class="card-meta"><div><h3>Plataforma de cursos/clases</h3><p>Nestlé Profesional®</p></div><div class="btn-group"><span class="view-details">DETALLES</span><a target="_blank" href="https://www.deproapro.com.mx/" class="nav-link" style="border-bottom:1px solid #000">VISITAR</a></div></div>
+            </div>
+
+        </div>
         <div style="text-align: center;"><button class="load-more-btn hover-trigger" id="loadMoreBtn">Ver más arquitectura</button></div>
     </section>
 
@@ -249,7 +294,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <script>
-        // --- 1. CURSOR (SOLO DESKTOP) ---
+        // --- 1. CURSOR (DESKTOP) ---
         if (window.innerWidth > 968) {
             gsap.set(".cursor-dot, .cursor-outline", {xPercent: -50, yPercent: -50});
             let xDot = gsap.quickTo(".cursor-dot", "x", {duration: 0.1});
@@ -270,13 +315,13 @@
                 gsap.to(burger.children[1], { opacity: 0 });
                 gsap.to(burger.children[0], { rotation: 45, y: 7 });
                 gsap.to(burger.children[2], { rotation: -45, y: -7 });
-                document.body.style.overflow = "hidden"; // Bloquea scroll al abrir menu
+                document.body.style.overflow = "hidden";
             } else {
                 gsap.to(mobileMenu, { left: "100%", duration: 0.6, ease: "power4.in" });
                 gsap.to(burger.children[1], { opacity: 1 });
                 gsap.to(burger.children[0], { rotation: 0, y: 0 });
                 gsap.to(burger.children[2], { rotation: 0, y: 0 });
-                document.body.style.overflow = ""; // Libera scroll
+                document.body.style.overflow = "";
             }
             menuOpen = !menuOpen;
         }
@@ -286,8 +331,10 @@
             link.addEventListener('click', () => { if(menuOpen) toggleMenu(); });
         });
 
-        // --- 3. MODAL & PROYECTOS ---
+        // --- 3. MODAL LOGIC ---
         const modal = document.getElementById('projectModal');
+        const closeModal = document.getElementById('closeModal');
+        
         document.querySelectorAll('.view-details, .img-overlay').forEach(trigger => {
             trigger.addEventListener('click', () => {
                 const card = trigger.closest('.project-card');
@@ -307,19 +354,21 @@
         });
 
         const closeFunc = () => { gsap.to(modal, {opacity: 0, duration: 0.3, onComplete: () => { modal.style.display = 'none'; }}); };
-        document.getElementById('closeModal').addEventListener('click', closeFunc);
+        closeModal.addEventListener('click', closeFunc);
         window.addEventListener('keydown', e => { if(e.key === 'Escape') closeFunc(); });
+        modal.addEventListener('click', e => { if(e.target === modal) closeFunc(); });
 
         // --- 4. LOAD MORE & ENTRANCE ---
         const cards = document.querySelectorAll('.project-card');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
         let visibleCount = 4;
         function showCards() {
             const toShow = Array.from(cards).slice(0, visibleCount);
             gsap.set(toShow, { display: 'flex' });
             gsap.to(toShow, { opacity: 1, y: 0, duration: 1, stagger: 0.1 });
-            if(visibleCount >= cards.length) document.getElementById('loadMoreBtn').style.display = 'none';
+            if(visibleCount >= cards.length) loadMoreBtn.style.display = 'none';
         }
-        document.getElementById('loadMoreBtn').addEventListener('click', () => { visibleCount += 3; showCards(); });
+        loadMoreBtn.addEventListener('click', () => { visibleCount += 3; showCards(); });
         showCards();
         gsap.from(".reveal", { y: 60, opacity: 0, duration: 1.2, stagger: 0.3 });
     </script>
