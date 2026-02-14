@@ -35,7 +35,7 @@
         
         html, body { 
             max-width: 100%;
-            overflow-x: hidden; /* Garantiza que no haya scroll horizontal */
+            overflow-x: hidden;
             position: relative;
             background-color: var(--bg); color: var(--text);
             font-family: 'Space Grotesk', sans-serif;
@@ -45,7 +45,7 @@
         h1, h2, h3 { font-weight: 700; letter-spacing: -0.04em; }
         a { text-decoration: none; color: inherit; cursor: pointer; }
 
-        /* --- CURSOR LÍQUIDO --- */
+        /* --- CURSOR --- */
         .cursor-dot {
             position: fixed; top: 0; left: 0; width: 6px; height: 6px;
             background-color: var(--text); border-radius: 50%; pointer-events: none; z-index: 9999;
@@ -102,7 +102,7 @@
         .skill-cat ul { list-style: none; }
         .skill-cat ul li { font-size: 0.95rem; margin-bottom: 5px; font-weight: 500; }
 
-        /* --- TARJETAS DE PROYECTO --- */
+        /* --- PROYECTOS --- */
         #projects { padding: 120px 10%; border-top: 1px solid var(--border-color); }
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 50px; }
         .project-card { display: none; flex-direction: column; border-bottom: 1px solid var(--border-color); padding-bottom: 30px; position: relative; }
@@ -128,6 +128,7 @@
             display: inline-block; padding: 15px 40px; border: 1px solid var(--text);
             background: transparent; color: var(--text); font-family: inherit; font-weight: 600; 
             margin-top: 80px; transition: 0.3s; -webkit-appearance: none; border-radius: 0;
+            cursor: pointer;
         }
 
         /* --- MODAL --- */
@@ -152,12 +153,12 @@
             * { cursor: auto !important; }
             .cursor-dot, .cursor-outline { display: none !important; }
             .nav-links { display: none; }
-            .burger { display: flex; cursor: pointer; }
+            .burger { display: flex; }
             .about-grid { grid-template-columns: 1fr; gap: 40px; }
             .about-img { width: 100%; max-width: 350px; margin: 0 auto; }
-            h1 { font-size: 3rem; }
-            .img-overlay { display: none !important; } /* Fix doble clic iOS */
-            .project-card { display: flex !important; opacity: 1 !important; transform: none !important; }
+            h1 { font-size: 3.5rem; }
+            .img-overlay { display: none !important; }
+            /* Se eliminó el display:flex !important que causaba el bug */
         }
     </style>
 </head>
@@ -233,13 +234,13 @@
         <h2 class="hero-tag" style="color:var(--text); margin-bottom: 60px;">PROYECTOS SELECCIONADOS</h2>
         <div class="projects-grid" id="projectGrid">
             
-            <div class="project-card hover-trigger" 
+            <div class="project-card" 
                  data-title="Nestlé Medical Hub" data-client="Nestlé Health Science®"
-                 data-desc="Arquitectura centralizada en Drupal para gestión de contenido médico. Implementación de SDC y optimización de entrega de assets globales."
+                 data-desc="Arquitectura centralizada en Drupal para gestión médica. Implementación de SDC y optimización de assets globales."
                  data-tech="Drupal, PHP 8, SDC, Performance">
                 <div class="img-container"><img src="medical.png"><div class="img-overlay"></div></div>
                 <div class="card-meta">
-                    <div><h3>Nestle MedicalHub</h3><p>Nestle Health Science®</p></div>
+                    <div><h3>Nestlé Medical Hub</h3><p>Nestle Health Science®</p></div>
                     <div class="btn-group">
                         <button class="view-details">DETALLES</button>
                         <a target="_blank" href="https://www.nestlehealthscience.com/" class="nav-link-visit">VISITAR</a>
@@ -247,13 +248,13 @@
                 </div>
             </div>
 
-            <div class="project-card hover-trigger"
+            <div class="project-card"
                  data-title="Nestlé Gerber®" data-client="BOT WhatsApp"
                  data-desc="Arquitectura para promociones masivas. Integración de Webhooks con API de WhatsApp y lógica de validación concurrente mediante Node.js."
                  data-tech="Node.js, WhatsApp API, React, Redis">
                 <div class="img-container"><img src="gerber.png"><div class="img-overlay"></div></div>
                 <div class="card-meta">
-                    <div><h3>Nestle Gerber®</h3><p>WhatsApp BOT</p></div>
+                    <div><h3>WhatsApp BOT</h3><p>Nestle Gerber®</p></div>
                     <div class="btn-group">
                         <button class="view-details">DETALLES</button>
                         <a target="_blank" href="https://promos.nestle.com.mx/mibebeg/" class="nav-link-visit">VISITAR</a>
@@ -261,7 +262,7 @@
                 </div>
             </div>
 
-            <div class="project-card hover-trigger"
+            <div class="project-card"
                  data-title="Sala de Prensa FET" data-client="Fiscalía de Tabasco"
                  data-desc="Módulo institucional de alta disponibilidad. Estructura de datos optimizada para consultas masivas y blindaje de seguridad."
                  data-tech="PHP 8, MySQL, Seguridad, Backend">
@@ -275,13 +276,13 @@
                 </div>
             </div>
 
-            <div class="project-card hover-trigger"
+            <div class="project-card"
                  data-title="Bebidas BOOST" data-client="Nestlé Health Science®"
                  data-desc="Plataforma multiregión US/MX. Arquitectura escalable y SEO técnico avanzado para alto posicionamiento orgánico."
                  data-tech="Drupal, Multilingual, SEO Tech">
                 <div class="img-container"><img src="boost.png"><div class="img-overlay"></div></div>
                 <div class="card-meta">
-                    <div><h3>Bebidas BOOST</h3><p>Nestlé US®</p></div>
+                    <div><h3>Bebidas BOOST</h3><p>Nestlé HS®</p></div>
                     <div class="btn-group">
                         <button class="view-details">DETALLES</button>
                         <a target="_blank" href="https://www.boost.com/" class="nav-link-visit">VISITAR</a>
@@ -289,7 +290,7 @@
                 </div>
             </div>
 
-            <div class="project-card hover-trigger"
+            <div class="project-card"
                  data-title="Deproapro LMS" data-client="Nestlé Profesional®"
                  data-desc="Plataforma de capacitación profesional. Implementación de rutas de aprendizaje dinámicas mediante lógica en Node.js."
                  data-tech="Node.js, React, E-learning">
@@ -328,7 +329,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <script>
-        // --- 1. CURSOR (DESKTOP) ---
+        // --- 1. CURSOR ---
         if (window.innerWidth > 968) {
             gsap.set(".cursor-dot, .cursor-outline", {xPercent: -50, yPercent: -50});
             let xDot = gsap.quickTo(".cursor-dot", "x", {duration: 0.1});
@@ -336,11 +337,6 @@
             let xOut = gsap.quickTo(".cursor-outline", "x", {duration: 0.5});
             let yOut = gsap.quickTo(".cursor-outline", "y", {duration: 0.5});
             window.addEventListener("mousemove", e => { xDot(e.clientX); yDot(e.clientY); xOut(e.clientX); yOut(e.clientY); });
-            
-            document.querySelectorAll('.hover-trigger').forEach(el => {
-                el.addEventListener('mouseenter', () => gsap.to(".cursor-outline", {scale: 2}));
-                el.addEventListener('mouseleave', () => gsap.to(".cursor-outline", {scale: 1}));
-            });
         }
 
         // --- 2. MENU MOBILE ---
@@ -361,7 +357,7 @@
         burger.addEventListener('click', toggleMenu);
         document.querySelectorAll('#mobileMenu a').forEach(link => link.addEventListener('click', toggleMenu));
 
-        // --- 3. MODAL LOGIC ---
+        // --- 3. MODAL ---
         const modal = document.getElementById('projectModal');
         const closeModal = document.getElementById('closeModal');
         
@@ -388,17 +384,34 @@
         window.addEventListener('keydown', e => { if(e.key === 'Escape') closeFunc(); });
         modal.addEventListener('click', e => { if(e.target === modal) closeFunc(); });
 
-        // --- 4. LOAD MORE & ENTRANCE ---
+        // --- 4. LOAD MORE (OPTIMIZADO) ---
         const cards = document.querySelectorAll('.project-card');
-        let visibleCount = 4;
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        let visibleCount = 0; // Inicia en 0 para que showCards maneje la lógica inicial
+        const step = 3; // Cuantos cargar por vez
+
         function showCards() {
-            const toShow = Array.from(cards).slice(0, visibleCount);
-            toShow.forEach(c => c.style.display = 'flex');
-            gsap.fromTo(toShow, {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 0.8, stagger: 0.1});
-            if(visibleCount >= cards.length) document.getElementById('loadMoreBtn').style.display = 'none';
+            const currentVisible = Array.from(cards).filter(c => c.style.display === 'flex').length;
+            const nextBatch = Array.from(cards).slice(currentVisible, currentVisible + step);
+            
+            if(nextBatch.length > 0) {
+                gsap.set(nextBatch, { display: 'flex', opacity: 0, y: 30 });
+                gsap.to(nextBatch, { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power2.out" });
+            }
+
+            if(currentVisible + nextBatch.length >= cards.length) {
+                loadMoreBtn.style.display = 'none';
+            }
         }
-        document.getElementById('loadMoreBtn').addEventListener('click', () => { visibleCount += 3; showCards(); });
-        showCards();
+
+        loadMoreBtn.addEventListener('click', showCards);
+        
+        // Carga inicial (primeros 3 o 4)
+        visibleCount = 4; 
+        const initialBatch = Array.from(cards).slice(0, visibleCount);
+        gsap.set(initialBatch, { display: 'flex', opacity: 0, y: 30 });
+        gsap.to(initialBatch, { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, delay: 0.5 });
+
         gsap.from(".reveal", { y: 40, opacity: 0, duration: 1, stagger: 0.2, ease: "power4.out" });
     </script>
 </body>
